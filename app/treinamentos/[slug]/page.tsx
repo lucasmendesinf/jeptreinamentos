@@ -30,7 +30,7 @@ export default async function TrainingDetailPage({ params }: Props) {
   const Icon = training.icon;
 
   return (
-    <div className="pt-20">
+    <div className="pt-28">
       <section className="section bg-zinc-950 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-sm bg-red-700 text-white">

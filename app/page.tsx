@@ -12,7 +12,9 @@ export default function Home() {
   return (
     <>
       <section className="hero-section">
-        <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(9,9,11,.94),rgba(127,29,29,.72),rgba(9,9,11,.54)),url('https://images.unsplash.com/photo-1584467735871-8d5c9fc2f928?auto=format&fit=crop&w=1800&q=85')] bg-cover bg-center" />
+        <div className="hero-fire-background" />
+        <div className="hero-sparks" aria-hidden="true" />
+        <div className="hero-heat" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white to-transparent" />
         <div className="relative mx-auto grid min-h-[92vh] max-w-7xl items-center gap-10 px-4 pb-20 pt-32 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:px-8">
           <MotionBlock>

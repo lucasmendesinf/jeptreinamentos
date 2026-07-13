@@ -247,13 +247,13 @@ export const faqItems = [
 ];
 
 export const galleryItems = [
-  { title: "Treinamento pratico de brigada", category: "Brigada de incendio", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/IMG-20190806-WA0006.jpg", alt: "Foto real da J&P Treinamentos em atividade pratica de brigada de incendio" },
-  { title: "Participantes em capacitacao", category: "Brigada de incendio", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/IMG-20190806-WA0005.jpg", alt: "Participantes em treinamento realizado pela J&P Treinamentos" },
-  { title: "Aula pratica operacional", category: "Treinamentos", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/DSC_0699.jpg", alt: "Registro real de aula pratica da J&P Treinamentos" },
-  { title: "Orientacao em campo", category: "Treinamentos", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/DSC_0698.jpg", alt: "Orientacao em campo durante treinamento da J&P Treinamentos" },
-  { title: "Equipamentos e procedimentos", category: "Equipamentos", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/DSC_0696.jpg", alt: "Equipamentos e procedimentos apresentados em treinamento da J&P Treinamentos" },
-  { title: "Simulacao pratica", category: "Servicos realizados", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/DSC_0695.jpg", alt: "Simulacao pratica registrada em treinamento da J&P Treinamentos" },
-  { title: "Treinamento realizado", category: "Servicos realizados", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/DSC_0694.jpg", alt: "Registro real de treinamento realizado pela J&P Treinamentos" },
+  { title: "Treinamento pratico de brigada", category: "Brigada de incendio", image: "/gallery-img-20190806-wa0006.jpg", alt: "Foto real da J&P Treinamentos em atividade pratica de brigada de incendio" },
+  { title: "Participantes em capacitacao", category: "Brigada de incendio", image: "/gallery-img-20190806-wa0005.jpg", alt: "Participantes em treinamento realizado pela J&P Treinamentos" },
+  { title: "Aula pratica operacional", category: "Treinamentos", image: "/gallery-dsc-0699.jpg", alt: "Registro real de aula pratica da J&P Treinamentos" },
+  { title: "Orientacao em campo", category: "Treinamentos", image: "/gallery-dsc-0698.jpg", alt: "Orientacao em campo durante treinamento da J&P Treinamentos" },
+  { title: "Equipamentos e procedimentos", category: "Equipamentos", image: "/gallery-dsc-0696.jpg", alt: "Equipamentos e procedimentos apresentados em treinamento da J&P Treinamentos" },
+  { title: "Simulacao pratica", category: "Servicos realizados", image: "/gallery-dsc-0695.jpg", alt: "Simulacao pratica registrada em treinamento da J&P Treinamentos" },
+  { title: "Treinamento realizado", category: "Servicos realizados", image: "/gallery-dsc-0694.jpg", alt: "Registro real de treinamento realizado pela J&P Treinamentos" },
 ];
 
 export const nrItems = [

@@ -19,7 +19,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="pt-20">
+    <div className="pt-28">
       <section className="section bg-zinc-950 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="eyebrow text-orange-300">Sobre a J&P</p>

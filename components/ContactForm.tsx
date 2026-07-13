@@ -1,8 +1,8 @@
 "use client";
 
-import { CheckCircle2, MessageCircle, Send } from "lucide-react";
+import { MessageCircle, RotateCcw } from "lucide-react";
 import { FormEvent, ReactNode, useMemo, useState } from "react";
-import { siteConfig, trainings } from "@/lib/site-data";
+import { trainings } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/utils";
 
 type FormState = {
@@ -69,46 +69,48 @@ export function ContactForm() {
     setSent(validate());
   }
 
+  function resetForm() {
+    setForm(initialState);
+    setErrors({});
+    setSent(false);
+  }
+
   const whatsappMessage = `Ola! Gostaria de solicitar um orcamento com a J&P Treinamentos.\n\nNome: ${form.name || "Nao informado"}\nEmpresa: ${form.company || "Nao informado"}\nE-mail: ${form.email || "Nao informado"}\nTelefone: ${form.phone || "Nao informado"}\nCidade: ${form.city || "Nao informado"}\nInteresse: ${form.service || "Nao informado"}\nParticipantes: ${form.participants || "Nao informado"}\nMensagem: ${form.message || "Nao informado"}`;
 
   return (
-    <form className="overflow-hidden rounded-sm border border-zinc-200 bg-white shadow-2xl shadow-zinc-950/10" onSubmit={submit} noValidate>
-      <div className="border-b border-zinc-200 bg-zinc-50 px-5 py-5 md:px-7">
-        <p className="text-xs font-black uppercase tracking-[0.16em] text-red-700">Solicitacao de orcamento</p>
-        <h2 className="mt-2 text-2xl font-black text-zinc-950">Conte sua necessidade</h2>
-        <p className="mt-2 text-sm leading-6 text-zinc-600">
-          Preencha os dados principais. Depois, valide o formulario e envie as informacoes pelo WhatsApp.
-        </p>
-      </div>
-
-      <div className="grid gap-5 p-5 md:p-7">
+    <form className="rounded-sm border border-[#d7def0] bg-white p-6 shadow-2xl shadow-blue-950/10 md:p-10" onSubmit={submit} noValidate>
+      <div className="grid gap-6">
         <div className="hidden">
           <label htmlFor="website">Site</label>
           <input id="website" value={form.website} onChange={(event) => update("website", event.target.value)} tabIndex={-1} autoComplete="off" />
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          <Field id="name" label="Nome completo" error={errors.name} required>
-            <input id="name" value={form.name} onChange={(event) => update("name", event.target.value)} autoComplete="name" placeholder="Seu nome" />
+        <div className="grid gap-5 md:grid-cols-2">
+          <Field id="name" label="Nome" error={errors.name}>
+            <input id="name" value={form.name} onChange={(event) => update("name", event.target.value)} autoComplete="name" />
           </Field>
-          <Field id="company" label="Empresa" optional>
-            <input id="company" value={form.company} onChange={(event) => update("company", event.target.value)} autoComplete="organization" placeholder="Nome da empresa" />
-          </Field>
-          <Field id="email" label="E-mail" error={errors.email} required>
-            <input id="email" type="email" value={form.email} onChange={(event) => update("email", event.target.value)} autoComplete="email" placeholder="email@empresa.com.br" />
-          </Field>
-          <Field id="phone" label="Telefone / WhatsApp" error={errors.phone} required>
-            <input id="phone" value={form.phone} onChange={(event) => update("phone", maskPhone(event.target.value))} autoComplete="tel" inputMode="tel" placeholder="(41) 99999-9999" />
-          </Field>
-          <Field id="city" label="Cidade" optional>
-            <input id="city" value={form.city} onChange={(event) => update("city", event.target.value)} autoComplete="address-level2" placeholder="Cidade de atendimento" />
-          </Field>
-          <Field id="participants" label="Participantes" optional>
-            <input id="participants" value={form.participants} onChange={(event) => update("participants", event.target.value.replace(/\D/g, "").slice(0, 4))} inputMode="numeric" placeholder="Ex.: 12" />
+          <Field id="email" label="E-mail" error={errors.email}>
+            <input id="email" type="email" value={form.email} onChange={(event) => update("email", event.target.value)} autoComplete="email" />
           </Field>
         </div>
 
-        <Field id="service" label="Treinamento ou servico desejado" error={errors.service} required>
+        <Field id="phone" label="Telefone" error={errors.phone}>
+          <input id="phone" value={form.phone} onChange={(event) => update("phone", maskPhone(event.target.value))} autoComplete="tel" inputMode="tel" placeholder="(00) 00000-0000" />
+        </Field>
+
+        <div className="grid gap-5 md:grid-cols-[1.1fr_.9fr_.45fr]">
+          <Field id="company" label="Empresa">
+            <input id="company" value={form.company} onChange={(event) => update("company", event.target.value)} autoComplete="organization" />
+          </Field>
+          <Field id="city" label="Cidade">
+            <input id="city" value={form.city} onChange={(event) => update("city", event.target.value)} autoComplete="address-level2" />
+          </Field>
+          <Field id="participants" label="Qtd.">
+            <input id="participants" value={form.participants} onChange={(event) => update("participants", event.target.value.replace(/\D/g, "").slice(0, 4))} inputMode="numeric" />
+          </Field>
+        </div>
+
+        <Field id="service" label="Assunto" error={errors.service}>
           <select id="service" value={form.service} onChange={(event) => update("service", event.target.value)}>
             <option value="">Selecione uma opcao</option>
             {serviceOptions.map((item) => (
@@ -121,54 +123,36 @@ export function ContactForm() {
           </select>
         </Field>
 
-        <Field id="message" label="Mensagem" error={errors.message} required>
-          <textarea
-            id="message"
-            rows={5}
-            value={form.message}
-            onChange={(event) => update("message", event.target.value)}
-            placeholder="Informe o objetivo, local, prazo desejado ou qualquer detalhe importante."
-          />
+        <Field id="message" label="Mensagem" error={errors.message}>
+          <textarea id="message" rows={6} value={form.message} onChange={(event) => update("message", event.target.value)} />
         </Field>
 
-        <div className="rounded-sm border border-zinc-200 bg-zinc-50 p-4">
-          <label className="flex gap-3 text-sm leading-6 text-zinc-700" htmlFor="consent">
-            <input id="consent" className="mt-1 h-4 w-4 accent-red-700" type="checkbox" checked={form.consent} onChange={(event) => update("consent", event.target.checked)} />
-            <span>Autorizo a J&P Treinamentos a utilizar os dados informados para responder esta solicitacao, conforme a LGPD.</span>
-          </label>
-          {errors.consent && <p className="mt-2 text-sm font-semibold text-red-700">{errors.consent}</p>}
-        </div>
+        <label className="flex gap-3 text-sm leading-6 text-zinc-600" htmlFor="consent">
+          <input id="consent" className="mt-1 h-4 w-4 accent-orange-500" type="checkbox" checked={form.consent} onChange={(event) => update("consent", event.target.checked)} />
+          <span>Autorizo a J&P Treinamentos a utilizar os dados informados para responder esta solicitacao.</span>
+        </label>
+        {errors.consent && <p className="-mt-4 text-sm font-semibold text-red-700">{errors.consent}</p>}
 
-        {sent && (
-          <div className="flex gap-3 rounded-sm border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-900">
-            <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0" />
-            <p>Formulario validado. Agora clique em “Enviar pelo WhatsApp” para encaminhar a solicitacao com os dados preenchidos.</p>
-          </div>
-        )}
+        {sent && <p className="rounded-sm border border-emerald-200 bg-emerald-50 p-3 text-sm font-semibold text-emerald-900">Dados validados. Clique em enviar mensagem para abrir o WhatsApp.</p>}
 
-        <div className="grid gap-3 sm:grid-cols-[.85fr_1.15fr]">
-          <button className="btn btn-ghost justify-center" type="submit">
-            <Send className="h-4 w-4" /> Validar dados
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <button className="btn border border-[#22279a] bg-white px-7 text-[#22279a] hover:bg-blue-50" type="button" onClick={resetForm}>
+            <RotateCcw className="h-4 w-4" /> Limpar
           </button>
-          <a className="btn btn-primary justify-center" href={whatsappLink(whatsappMessage)} target="_blank" rel="noreferrer" onClick={(event) => { if (!validate()) event.preventDefault(); }}>
-            <MessageCircle className="h-4 w-4" /> Enviar pelo WhatsApp
+          <a className="btn bg-orange-500 px-8 text-white shadow-lg shadow-orange-500/25 hover:bg-orange-600" href={whatsappLink(whatsappMessage)} target="_blank" rel="noreferrer" onClick={(event) => { if (!validate()) event.preventDefault(); }}>
+            <MessageCircle className="h-4 w-4" /> Enviar mensagem
           </a>
-        </div>
-
-        <div className="grid gap-1 border-t border-zinc-100 pt-4 text-xs text-zinc-500 sm:grid-cols-2">
-          <p>Retorno pelo WhatsApp ou e-mail informado.</p>
-          <p className="sm:text-right">{siteConfig.email}</p>
         </div>
       </div>
     </form>
   );
 }
 
-function Field({ id, label, error, optional, required, children }: { id: string; label: string; error?: string; optional?: boolean; required?: boolean; children: ReactNode }) {
+function Field({ id, label, error, children }: { id: string; label: string; error?: string; children: ReactNode }) {
   return (
     <div>
-      <label className="mb-2 block text-sm font-black text-zinc-900" htmlFor={id}>
-        {label} {required && <span className="text-red-700">*</span>} {optional && <span className="font-medium text-zinc-500">(opcional)</span>}
+      <label className="mb-3 block text-xl font-black text-[#22279a]" htmlFor={id}>
+        {label}
       </label>
       <div className="[&_input]:form-field [&_select]:form-field [&_textarea]:form-field">{children}</div>
       {error && <p className="mt-2 text-sm font-semibold text-red-700">{error}</p>}

@@ -16,7 +16,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-zinc-950/88 text-white backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center" aria-label="J&P Prevencoes de Incendios e Seguranca do Trabalho">
-          <span className="flex h-12 w-[176px] items-center rounded-sm bg-white px-3 py-1 shadow-lg shadow-red-950/35 sm:h-14 sm:w-[224px]">
+          <span className="flex h-16 w-[212px] items-center rounded-sm bg-white px-2 py-1 shadow-lg shadow-red-950/35 sm:h-[74px] sm:w-[258px] lg:h-20 lg:w-[286px]">
             <Image
               src="/logo-jp.png"
               alt="J&P Prevencoes de Incendios e Seguranca do Trabalho"

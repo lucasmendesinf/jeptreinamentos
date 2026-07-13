@@ -15,9 +15,9 @@ export function Footer() {
             <Image
               src="/logo-jp.png"
               alt="J&P Prevencoes de Incendios e Seguranca do Trabalho"
-              width={413}
-              height={306}
-              className="h-auto w-52 object-contain"
+              width={383}
+              height={277}
+              className="h-auto w-64 object-contain"
             />
           </div>
           <p className="text-sm leading-7">
