@@ -44,7 +44,6 @@ export const navItems = [
   { label: "Sobre", href: "/sobre" },
   { label: "Treinamentos", href: "/treinamentos" },
   { label: "Servicos", href: "/servicos" },
-  { label: "Normas Regulamentadoras", href: "/normas-regulamentadoras" },
   { label: "Galeria", href: "/galeria" },
   { label: "Contato", href: "/contato" },
 ];

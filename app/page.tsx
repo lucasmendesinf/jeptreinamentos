@@ -5,7 +5,7 @@ import { MotionBlock } from "@/components/Motion";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { TrainingCard } from "@/components/TrainingCard";
-import { differentials, faqItems, processSteps, services, trainings, trustIndicators } from "@/lib/site-data";
+import { differentials, faqItems, nrItems, processSteps, services, trainings, trustIndicators } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/utils";
 
 export default function Home() {
@@ -93,6 +93,31 @@ export default function Home() {
           </SectionHeading>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {trainings.map((training) => <TrainingCard key={training.slug} training={training} />)}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y border-zinc-200 bg-white py-8">
+        <div className="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-8">
+          <div>
+            <p className="eyebrow">Normas Regulamentadoras (NRs)</p>
+            <h2 className="mt-2 text-2xl font-black text-zinc-950 md:text-3xl">Acesso rapido as normas trabalhadas</h2>
+            <Link className="mt-4 inline-flex text-sm font-black text-red-700 hover:text-red-900" href="/normas-regulamentadoras">
+              Ver explicacao completa <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            {nrItems.map((item) => (
+              <Link
+                key={item.code}
+                href="/normas-regulamentadoras"
+                className="rounded-sm border border-zinc-200 bg-zinc-50 px-3 py-2 text-sm font-black text-zinc-800 transition hover:border-red-300 hover:bg-red-50 hover:text-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+                aria-label={`Ver informacoes sobre ${item.code} - ${item.title}`}
+              >
+                <span className="text-red-700">{item.code}</span>
+                <span className="ml-2 font-bold text-zinc-600">{item.title}</span>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
