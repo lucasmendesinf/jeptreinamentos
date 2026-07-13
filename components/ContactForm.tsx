@@ -78,7 +78,7 @@ export function ContactForm() {
   const whatsappMessage = `Ola! Gostaria de solicitar um orcamento com a J&P Treinamentos.\n\nNome: ${form.name || "Nao informado"}\nEmpresa: ${form.company || "Nao informado"}\nE-mail: ${form.email || "Nao informado"}\nTelefone: ${form.phone || "Nao informado"}\nCidade: ${form.city || "Nao informado"}\nInteresse: ${form.service || "Nao informado"}\nParticipantes: ${form.participants || "Nao informado"}\nMensagem: ${form.message || "Nao informado"}`;
 
   return (
-    <form className="rounded-sm border border-[#d7def0] bg-white p-6 shadow-2xl shadow-blue-950/10 md:p-10" onSubmit={submit} noValidate>
+    <form className="rounded-sm border-2 border-[#c6d0ef] bg-white p-6 shadow-2xl shadow-blue-950/15 md:p-10" onSubmit={submit} noValidate>
       <div className="grid gap-6">
         <div className="hidden">
           <label htmlFor="website">Site</label>
@@ -151,7 +151,7 @@ export function ContactForm() {
 function Field({ id, label, error, children }: { id: string; label: string; error?: string; children: ReactNode }) {
   return (
     <div>
-      <label className="mb-3 block text-xl font-black text-[#22279a]" htmlFor={id}>
+      <label className="mb-3 block text-xl font-black text-[#20258f]" htmlFor={id}>
         {label}
       </label>
       <div className="[&_input]:form-field [&_select]:form-field [&_textarea]:form-field">{children}</div>
