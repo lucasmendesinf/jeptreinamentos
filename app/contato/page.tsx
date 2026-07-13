@@ -23,8 +23,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:px-8">
+      <section className="section bg-zinc-50">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.15fr_.85fr] lg:px-8">
           <ContactForm />
           <aside className="grid h-fit gap-5">
             <div className="card p-6">

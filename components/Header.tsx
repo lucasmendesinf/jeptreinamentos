@@ -1,10 +1,10 @@
 "use client";
 
-import { Menu, Phone, ShieldCheck, X } from "lucide-react";
+import { Menu, ShieldCheck, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { navItems, siteConfig } from "@/lib/site-data";
+import { navItems } from "@/lib/site-data";
 import { cx, whatsappLink } from "@/lib/utils";
 
 export function Header() {
@@ -40,16 +40,9 @@ export function Header() {
         </nav>
 
         <div className="hidden items-center gap-3 xl:flex">
-          <a href={siteConfig.phoneHref} className="inline-flex items-center gap-2 text-sm font-semibold text-zinc-200 hover:text-white">
-            <Phone className="h-4 w-4 text-orange-400" aria-hidden="true" />
-            {siteConfig.phone}
-          </a>
-          <a className="btn btn-dark" href={whatsappLink()} target="_blank" rel="noreferrer">
-            WhatsApp
-          </a>
-          <Link className="btn btn-primary" href="/contato">
+          <a className="btn btn-primary" href={whatsappLink("Ola! Gostaria de solicitar um orcamento com a J&P Treinamentos.")} target="_blank" rel="noreferrer">
             Solicitar orcamento
-          </Link>
+          </a>
         </div>
 
         <button
@@ -72,13 +65,10 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <div className="grid gap-2 pt-3 sm:grid-cols-2">
-              <a className="btn btn-dark justify-center" href={whatsappLink()} target="_blank" rel="noreferrer">
-                WhatsApp
-              </a>
-              <Link className="btn btn-primary justify-center" href="/contato" onClick={() => setOpen(false)}>
+            <div className="pt-3">
+              <a className="btn btn-primary w-full justify-center" href={whatsappLink("Ola! Gostaria de solicitar um orcamento com a J&P Treinamentos.")} target="_blank" rel="noreferrer" onClick={() => setOpen(false)}>
                 Solicitar orcamento
-              </Link>
+              </a>
             </div>
           </nav>
         </div>
