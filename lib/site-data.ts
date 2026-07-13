@@ -248,12 +248,13 @@ export const faqItems = [
 ];
 
 export const galleryItems = [
-  { title: "Treinamento de brigada", category: "Brigada de incendio", image: "https://images.unsplash.com/photo-1584467735871-8d5c9fc2f928?auto=format&fit=crop&w=1200&q=80", alt: "Equipe em treinamento de prevencao e resposta a incendio" },
-  { title: "Equipamentos de combate", category: "Equipamentos", image: "https://images.unsplash.com/photo-1604754742629-3e5728249d73?auto=format&fit=crop&w=1200&q=80", alt: "Extintor e equipamentos de seguranca contra incendio" },
-  { title: "Sinalizacao de emergencia", category: "Servicos realizados", image: "https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1200&q=80", alt: "Ambiente industrial com sinalizacao e seguranca operacional" },
-  { title: "Trabalho em altura", category: "Trabalho em altura", image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80", alt: "Profissional com equipamentos em atividade de altura" },
-  { title: "Operacao com empilhadeira", category: "Operador de empilhadeira", image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80", alt: "Area logistica com movimentacao de cargas" },
-  { title: "Palestra de seguranca", category: "Palestras", image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80", alt: "Reuniao corporativa para orientacao e treinamento" },
+  { title: "Treinamento pratico de brigada", category: "Brigada de incendio", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/IMG-20190806-WA0006.jpg", alt: "Foto real da J&P Treinamentos em atividade pratica de brigada de incendio" },
+  { title: "Participantes em capacitacao", category: "Brigada de incendio", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/IMG-20190806-WA0005.jpg", alt: "Participantes em treinamento realizado pela J&P Treinamentos" },
+  { title: "Aula pratica operacional", category: "Treinamentos", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/DSC_0699.jpg", alt: "Registro real de aula pratica da J&P Treinamentos" },
+  { title: "Orientacao em campo", category: "Treinamentos", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/DSC_0698.jpg", alt: "Orientacao em campo durante treinamento da J&P Treinamentos" },
+  { title: "Equipamentos e procedimentos", category: "Equipamentos", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/DSC_0696.jpg", alt: "Equipamentos e procedimentos apresentados em treinamento da J&P Treinamentos" },
+  { title: "Simulacao pratica", category: "Servicos realizados", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/DSC_0695.jpg", alt: "Simulacao pratica registrada em treinamento da J&P Treinamentos" },
+  { title: "Treinamento realizado", category: "Servicos realizados", image: "https://jeptreinamentos.com.br/wp-content/uploads/2019/08/DSC_0694.jpg", alt: "Registro real de treinamento realizado pela J&P Treinamentos" },
 ];
 
 export const nrItems = [
