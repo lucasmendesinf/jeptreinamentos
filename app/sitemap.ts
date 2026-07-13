@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig, trainings } from "@/lib/site-data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = ["", "/sobre", "/treinamentos", "/servicos", "/normas-regulamentadoras", "/galeria", "/contato", "/politica-de-privacidade", "/termos-de-uso"];
+  const staticRoutes = ["", "/sobre", "/treinamentos", "/servicos", "/normas-regulamentadoras", "/galeria", "/contato", "/politica-de-privacidade", "/termos-de-cookies", "/termos-de-uso"];
   const trainingRoutes = trainings.map((training) => `/treinamentos/${training.slug}`);
 
   return [...staticRoutes, ...trainingRoutes].map((route) => ({

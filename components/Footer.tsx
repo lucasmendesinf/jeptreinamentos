@@ -36,6 +36,7 @@ export function Footer() {
               </li>
             ))}
             <li><Link className="hover:text-white" href="/politica-de-privacidade">Politica de Privacidade</Link></li>
+            <li><Link className="hover:text-white" href="/termos-de-cookies">Termos de Cookies</Link></li>
             <li><Link className="hover:text-white" href="/termos-de-uso">Termos de Uso</Link></li>
           </ul>
         </div>
