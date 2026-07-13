@@ -16,9 +16,9 @@ export default function NRsPage() {
       <section className="section bg-zinc-950 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="eyebrow text-orange-300">Normas Regulamentadoras</p>
-          <h1 className="mt-4 max-w-4xl text-5xl font-black leading-tight md:text-6xl">Conteudo informativo para orientar a conversa tecnica.</h1>
+          <h1 className="mt-4 max-w-4xl text-5xl font-black leading-tight md:text-6xl">Saiba mais sobre as Normas Regulamentadoras trabalhadas pela J&P.</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-200">
-            A necessidade de cada treinamento depende da atividade, funcao, ambiente de trabalho e legislacao aplicavel. Esta pagina nao substitui avaliacao tecnica ou fonte oficial.
+            As normas regulamentadoras determinam e orientam procedimentos relacionados a saude e seguranca do trabalho. A J&P Treinamentos segue essas orientacoes para replicar conhecimento aos alunos.
           </p>
         </div>
       </section>
@@ -28,10 +28,12 @@ export default function NRsPage() {
           <div className="mb-10 flex gap-4 rounded-sm border border-orange-200 bg-orange-50 p-5 text-orange-950">
             <AlertTriangle className="mt-1 h-6 w-6 shrink-0" />
             <p className="leading-7">
-              Informacoes gerais. Para interpretacoes juridicas, tecnicas ou obrigacoes especificas, consulte a norma vigente e profissionais habilitados.
+              Conteudo informativo baseado na pagina antiga da J&P. A necessidade de cada treinamento depende da atividade, funcao, ambiente e legislacao aplicavel; para interpretacoes especificas, consulte a norma vigente e profissionais habilitados.
             </p>
           </div>
-          <SectionHeading title="Principais NRs trabalhadas" />
+          <SectionHeading title="Descricao de algumas NRs">
+            Abaixo estao as normas apresentadas pela J&P no site antigo, com redacao revisada para ficar mais clara e profissional.
+          </SectionHeading>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {nrItems.map((item) => (
               <article key={item.code} className="card p-6">

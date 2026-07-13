@@ -60,7 +60,7 @@ export const trainings = [
   {
     slug: "brigada-de-incendio",
     name: "Brigada de Incendio",
-    short: "Formacao e reciclagem para equipes preparadas para agir com seguranca em situacoes de emergencia.",
+    short: "Treinamento de brigadas para preparar equipes, reduzir riscos e fortalecer a resposta inicial a emergencias.",
     icon: Flame,
     relatedNorms: ["NR 23", "Instrucoes do Corpo de Bombeiros aplicaveis"],
     audience: "Empresas, condominios, equipes internas e profissionais indicados para atuacao preventiva.",
@@ -78,7 +78,7 @@ export const trainings = [
   {
     slug: "nr-6-epi",
     name: "NR 6 - Equipamentos de Protecao Individual",
-    short: "Treinamento sobre uso, conservacao, guarda e responsabilidades relacionadas aos EPIs.",
+    short: "Treinamento sobre uso adequado, armazenamento, cuidados e tipos de EPIs utilizados em cada atividade.",
     icon: HardHat,
     relatedNorms: ["NR 6"],
     audience: "Colaboradores que utilizam EPIs em suas atividades.",
@@ -106,7 +106,7 @@ export const trainings = [
   {
     slug: "nr-11-operador-de-empilhadeira",
     name: "NR 11 - Operador de Empilhadeira",
-    short: "Treinamento para operacao segura, movimentacao de cargas e cuidados no ambiente operacional.",
+    short: "Capacitacao para operador de empilhadeira, com foco em qualificacao, riscos da operacao e seguranca no ambiente de trabalho.",
     icon: Construction,
     relatedNorms: ["NR 11"],
     audience: "Operadores e profissionais envolvidos em transporte, movimentacao e armazenagem.",
@@ -134,7 +134,7 @@ export const trainings = [
   {
     slug: "nr-23-protecao-contra-incendios",
     name: "NR 23 - Protecao Contra Incendios",
-    short: "Conteudo voltado a prevencao, abandono, equipamentos e orientacoes basicas de emergencia.",
+    short: "Adequacoes e treinamentos ligados a prevencao de incendios, brigadistas, sinalizacao, extintores e rotas de fuga.",
     icon: Siren,
     relatedNorms: ["NR 23"],
     audience: "Empresas e equipes que precisam reforcar medidas de protecao contra incendios.",
@@ -148,7 +148,7 @@ export const trainings = [
   {
     slug: "nr-33-espacos-confinados",
     name: "NR 33 - Espacos Confinados",
-    short: "Treinamento para reconhecimento de riscos e medidas de seguranca em espacos confinados.",
+    short: "Treinamento para entrada em espacos confinados, riscos, medidor de gas e equipamentos de protecao adequados.",
     icon: ShieldCheck,
     relatedNorms: ["NR 33"],
     audience: "Trabalhadores autorizados, vigias, supervisores e equipes de apoio, conforme funcao.",
@@ -162,7 +162,7 @@ export const trainings = [
   {
     slug: "nr-35-trabalho-em-altura",
     name: "NR 35 - Trabalho em Altura",
-    short: "Capacitacao sobre riscos, planejamento, sistemas de protecao e procedimentos para trabalho em altura.",
+    short: "Treinamento de trabalho em altura com orientacao sobre riscos, equipamentos, linha de vida, trava-quedas, cintos e sinalizacao.",
     icon: Route,
     relatedNorms: ["NR 35"],
     audience: "Profissionais que realizam ou acompanham atividades em altura.",
@@ -258,13 +258,16 @@ export const galleryItems = [
 ];
 
 export const nrItems = [
-  { code: "NR 6", title: "Equipamentos de Protecao Individual", summary: "Orienta o uso, guarda, conservacao e responsabilidades relacionadas aos EPIs." },
-  { code: "NR 10", title: "Seguranca em Eletricidade", summary: "Relacionada a medidas de controle e seguranca em instalacoes e servicos com eletricidade." },
-  { code: "NR 11", title: "Transporte e Movimentacao", summary: "Abrange cuidados com transporte, movimentacao, armazenagem e manuseio de materiais." },
-  { code: "NR 12", title: "Seguranca em Maquinas", summary: "Trata de medidas de protecao, procedimentos e seguranca em maquinas e equipamentos." },
-  { code: "NR 23", title: "Protecao Contra Incendios", summary: "Reforca medidas de prevencao, protecao e resposta a emergencias de incendio." },
-  { code: "NR 33", title: "Espacos Confinados", summary: "Estabelece referencias de seguranca para atividades em espacos confinados." },
-  { code: "NR 35", title: "Trabalho em Altura", summary: "Voltada ao planejamento, organizacao e execucao segura de atividades em altura." },
+  { code: "NR 6", title: "Equipamentos de Protecao Individual", summary: "Uso adequado, armazenamento, cuidados com EPIs e escolha dos tipos de protecao para cada trabalho." },
+  { code: "NR 9", title: "Programa de Prevencao de Riscos Ambientais", summary: "Referencia informativa sobre identificacao e prevencao de riscos ambientais no trabalho." },
+  { code: "NR 10", title: "Seguranca em Instalacoes e Servicos em Eletricidade", summary: "Treinamentos e reciclagens sobre riscos, equipamentos de protecao, sinalizacao e procedimentos para servicos com eletricidade." },
+  { code: "NR 11", title: "Operador de Empilhadeira", summary: "Qualificacao de operadores com orientacao sobre riscos da operacao, tipos de empilhadeiras, pisos e cuidados no ambiente de trabalho." },
+  { code: "NR 12", title: "Seguranca em Maquinas", summary: "Levantamento de adequacoes necessarias, incluindo protecoes de partes moveis como polias, engrenagens, eixos e rolamentos." },
+  { code: "NR 18", title: "Industria da Construcao", summary: "Integracao e orientacao aos colaboradores sobre riscos do ambiente de trabalho na industria da construcao." },
+  { code: "NR 23 / NPT-017", title: "Protecao Contra Incendios", summary: "Adequacoes, projetos para liberacao de alvaras, placas de emergencia, extintores, pinturas de solo, dimensionamento e treinamento de brigadas." },
+  { code: "NR 26", title: "Cores e Identificacao", summary: "Adequacao do ambiente de trabalho com criterios de cores e identificacao na seguranca do trabalho." },
+  { code: "NR 33", title: "Espacos Confinados", summary: "Treinamentos para entrada em espacos confinados, riscos, medidor de gas, tipos de espacos e equipamentos de protecao." },
+  { code: "NR 35", title: "Trabalho em Altura", summary: "Treinamentos sobre riscos, uso correto de equipamentos de protecao, linhas de vida, trava-quedas, cintos de seguranca e sinalizacao." },
 ];
 
 export const editableCompanyData = [

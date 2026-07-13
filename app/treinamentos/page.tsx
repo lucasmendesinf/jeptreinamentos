@@ -15,15 +15,17 @@ export default function TrainingsPage() {
       <section className="section bg-zinc-950 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="eyebrow text-orange-300">Treinamentos</p>
-          <h1 className="mt-4 max-w-4xl text-5xl font-black leading-tight md:text-6xl">Capacitacoes para empresas que levam prevencao a serio.</h1>
+          <h1 className="mt-4 max-w-4xl text-5xl font-black leading-tight md:text-6xl">Conhecimento tecnico para possibilitar mais seguranca no trabalho.</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-200">
-            Cada pagina de treinamento possui campos configuraveis para carga horaria, validade, conteudo e normas relacionadas, permitindo ajuste com os dados oficiais da empresa.
+            Temos uma equipe de profissionais competentes e comprometidos em transmitir todo o conhecimento necessario para possibilitar a seguranca do trabalho.
           </p>
         </div>
       </section>
       <section className="section bg-zinc-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading title="Lista completa de treinamentos" />
+          <SectionHeading title="Confira nossos treinamentos">
+            A pagina antiga destacava Brigada de Incendio, NR 11 - Operador de Empilhadeira, NR 35 e NR 6. Mantivemos esses treinamentos e organizamos tambem outras normas citadas pela J&P para facilitar a consulta.
+          </SectionHeading>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {trainings.map((training) => <TrainingCard key={training.slug} training={training} />)}
           </div>
