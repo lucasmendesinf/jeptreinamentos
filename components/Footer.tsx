@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ExternalLink, Mail, Phone, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { ExternalLink, Mail, Phone } from "lucide-react";
 import { navItems, services, siteConfig, trainings } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/utils";
 
@@ -10,14 +11,14 @@ export function Footer() {
     <footer className="bg-zinc-950 text-zinc-300">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
-          <div className="mb-5 flex items-center gap-3 text-white">
-            <span className="flex h-11 w-11 items-center justify-center rounded-sm bg-red-700">
-              <ShieldCheck className="h-6 w-6" />
-            </span>
-            <div>
-              <strong className="block text-lg">J&P Treinamentos</strong>
-              <span className="text-xs uppercase text-zinc-400">Prevencao e seguranca</span>
-            </div>
+          <div className="mb-5 inline-flex rounded-sm bg-white p-3 shadow-lg shadow-black/20">
+            <Image
+              src="/logo-jp.png"
+              alt="J&P Prevencoes de Incendios e Seguranca do Trabalho"
+              width={413}
+              height={306}
+              className="h-auto w-52 object-contain"
+            />
           </div>
           <p className="text-sm leading-7">
             Treinamentos em seguranca do trabalho, prevencao de incendios e apoio tecnico para empresas que precisam preparar pessoas e proteger ambientes.

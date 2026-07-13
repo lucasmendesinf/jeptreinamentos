@@ -1,6 +1,7 @@
 "use client";
 
-import { Menu, ShieldCheck, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -14,13 +15,16 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-zinc-950/88 text-white backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3" aria-label="J&P Treinamentos - inicio">
-          <span className="flex h-11 w-11 items-center justify-center rounded-sm bg-red-700 text-white shadow-lg shadow-red-950/40">
-            <ShieldCheck className="h-6 w-6" aria-hidden="true" />
-          </span>
-          <span className="leading-tight">
-            <span className="block text-base font-black tracking-wide">J&P</span>
-            <span className="block text-xs font-semibold uppercase text-zinc-300">Treinamentos</span>
+        <Link href="/" className="flex items-center" aria-label="J&P Prevencoes de Incendios e Seguranca do Trabalho">
+          <span className="flex h-12 w-[176px] items-center rounded-sm bg-white px-3 py-1 shadow-lg shadow-red-950/35 sm:h-14 sm:w-[224px]">
+            <Image
+              src="/logo-jp.png"
+              alt="J&P Prevencoes de Incendios e Seguranca do Trabalho"
+              width={413}
+              height={306}
+              priority
+              className="h-full w-full object-contain"
+            />
           </span>
         </Link>
 
