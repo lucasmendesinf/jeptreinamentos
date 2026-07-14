@@ -43,7 +43,7 @@ export default function NRsPage() {
               </article>
             ))}
           </div>
-          <Link className="btn btn-primary mt-8" href="/jeptreinamentos/contato">Solicitar orientação</Link>
+          <Link className="btn btn-primary mt-8" href="/contato">Solicitar orientação</Link>
         </div>
       </section>
     </div>

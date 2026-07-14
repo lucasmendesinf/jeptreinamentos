@@ -76,7 +76,7 @@ export function CookieConsent() {
                 <h3 className="font-black text-zinc-950">Contato</h3>
                 <p>
                   Dúvidas sobre cookies, privacidade ou tratamento de dados podem ser enviadas pela página de{" "}
-                  <Link className="font-black text-red-700 underline underline-offset-4" href="/jeptreinamentos/contato">
+                  <Link className="font-black text-red-700 underline underline-offset-4" href="/contato">
                     contato
                   </Link>
                   .
@@ -90,7 +90,7 @@ export function CookieConsent() {
               <button className="btn btn-ghost" type="button" onClick={() => close("cancelled")}>
                 Cancelar
               </button>
-              <Link className="btn btn-ghost" href="/jeptreinamentos/termos-de-cookies" onClick={() => setTermsOpen(false)}>
+              <Link className="btn btn-ghost" href="/termos-de-cookies" onClick={() => setTermsOpen(false)}>
                 Ver página completa
               </Link>
             </div>

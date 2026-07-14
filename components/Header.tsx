@@ -6,11 +6,10 @@ import { useState } from "react";
 import { navItems } from "@/lib/site-data";
 import { cx, whatsappLink } from "@/lib/utils";
 
-const logoSrc = "/jeptreinamentos/logo-jp.jpg";
+const logoSrc = "/logo-jp.jpg";
 
 function publicHref(href: string) {
-  if (href === "/") return "/jeptreinamentos/";
-  return `/jeptreinamentos${href}`;
+  return href;
 }
 
 export function Header() {
@@ -20,7 +19,7 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-zinc-950/88 text-white backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <a href="/jeptreinamentos/" className="flex items-center" aria-label="J&P Prevenções de Incêndios e Segurança do Trabalho">
+        <a href="/" className="flex items-center" aria-label="J&P Prevenções de Incêndios e Segurança do Trabalho">
           <span className="inline-flex h-16 items-center rounded-sm bg-white/95 p-1 shadow-lg shadow-red-950/35 sm:h-[74px] lg:h-20">
             <img
               src={logoSrc}

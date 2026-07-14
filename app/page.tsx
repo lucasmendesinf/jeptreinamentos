@@ -47,10 +47,10 @@ export default function Home() {
               A J&P prepara brigadistas, operadores e equipes de empresas com aulas objetivas, prática orientada e foco em prevenção de incêndios e segurança do trabalho.
             </p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row">
-              <Link className="btn btn-primary justify-center" href="/jeptreinamentos/contato">
+              <Link className="btn btn-primary justify-center" href="/contato">
                 Solicitar orçamento <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link className="btn border-white/25 bg-black/25 text-white hover:bg-white/15" href="/jeptreinamentos/treinamentos">
+              <Link className="btn border-white/25 bg-black/25 text-white hover:bg-white/15" href="/treinamentos">
                 Ver treinamentos
               </Link>
             </div>
@@ -127,7 +127,7 @@ export default function Home() {
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {services.slice(0, 6).map((service) => <ServiceCard key={service.title} service={service} />)}
           </div>
-          <Link className="btn btn-ghost mt-8" href="/jeptreinamentos/servicos">
+          <Link className="btn btn-ghost mt-8" href="/servicos">
             Ver todos os serviços <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
@@ -185,7 +185,7 @@ export default function Home() {
             <h2 className="section-title max-w-3xl text-white">Não espere uma emergência para investir em prevenção.</h2>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link className="btn bg-white text-red-800 hover:bg-zinc-100" href="/jeptreinamentos/contato">Solicitar orçamento</Link>
+            <Link className="btn bg-white text-red-800 hover:bg-zinc-100" href="/contato">Solicitar orçamento</Link>
             <a className="btn border-white/30 bg-red-950/30 text-white hover:bg-red-950/50" href={whatsappLink()} target="_blank" rel="noreferrer">
               Falar pelo WhatsApp
             </a>

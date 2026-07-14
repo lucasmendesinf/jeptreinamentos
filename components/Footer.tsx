@@ -2,11 +2,10 @@ import { ExternalLink, Mail, Phone } from "lucide-react";
 import { navItems, services, siteConfig } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/utils";
 
-const logoSrc = "/jeptreinamentos/logo-jp.jpg";
+const logoSrc = "/logo-jp.jpg";
 
 function publicHref(href: string) {
-  if (href === "/") return "/jeptreinamentos/";
-  return `/jeptreinamentos${href}`;
+  return href;
 }
 
 export function Footer() {
@@ -41,17 +40,17 @@ export function Footer() {
               </li>
             ))}
             <li>
-              <a className="hover:text-white" href="/jeptreinamentos/politica-de-privacidade">
+              <a className="hover:text-white" href="/politica-de-privacidade">
                 Política de Privacidade
               </a>
             </li>
             <li>
-              <a className="hover:text-white" href="/jeptreinamentos/termos-de-cookies">
+              <a className="hover:text-white" href="/termos-de-cookies">
                 Termos de Cookies
               </a>
             </li>
             <li>
-              <a className="hover:text-white" href="/jeptreinamentos/termos-de-uso">
+              <a className="hover:text-white" href="/termos-de-uso">
                 Termos de Uso
               </a>
             </li>

@@ -1,1 +1,0 @@
-import{r as e}from"./site-data-r1_ux5VZ.js";function t(t=e.defaultWhatsappMessage){return`https://wa.me/${e.whatsapp}?text=${encodeURIComponent(t)}`}function n(e){return`Olá! Gostaria de solicitar um orçamento para ${e}.`}function r(...e){return e.filter(Boolean).join(` `)}export{n,t as r,r as t};

@@ -96,7 +96,7 @@ export default function AboutPage() {
             <p className="mt-4 leading-7 text-zinc-600">
               O atendimento começa pelo entendimento da necessidade do cliente, tipo de treinamento ou adequação, local e quantidade estimada de participantes.
             </p>
-            <Link className="btn btn-primary mt-6" href="/jeptreinamentos/contato">Entre em contato</Link>
+            <Link className="btn btn-primary mt-6" href="/contato">Entre em contato</Link>
           </div>
         </div>
       </section>

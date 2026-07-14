@@ -11,6 +11,7 @@ deployment:
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R gallery-optimized $DEPLOYPATH
     - /bin/cp -R contato galeria normas-regulamentadoras politica-de-privacidade servicos sobre termos-de-cookies termos-de-uso treinamentos $DEPLOYPATH
+    - /bin/find $DEPLOYPATH -type f \( -name '*.html' -o -name '*.js' -o -name '*.css' \) -exec /bin/sed -i 's#/jeptreinamentos/#/#g' {} \;
     - /bin/cp favicon.ico favicon.png favicon-32x32.png apple-touch-icon.png favicon.svg file.svg globe.svg window.svg $BASEPATH
     - /bin/cp logo-jp.jpg og.jpg hero-fire-prevention.jpg $BASEPATH
     - /bin/cp -R assets $BASEPATH

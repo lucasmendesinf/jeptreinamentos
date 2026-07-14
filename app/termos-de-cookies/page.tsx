@@ -81,7 +81,7 @@ export default function CookieTermsPage() {
             <p className="mt-3 leading-7 text-zinc-600">
               O aviso de cookies registra apenas sua decisão no navegador. Você pode limpar essa preferência pelas configurações do próprio navegador.
             </p>
-            <Link className="btn btn-primary mt-6 w-full" href="/jeptreinamentos/contato">
+            <Link className="btn btn-primary mt-6 w-full" href="/contato">
               Falar com a equipe
             </Link>
           </aside>
