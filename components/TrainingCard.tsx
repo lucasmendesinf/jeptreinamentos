@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { ArrowRight, MessageSquare } from "lucide-react";
+import { MessageSquare } from "lucide-react";
 import { TrainingLearnMoreButton } from "@/components/TrainingLearnMoreButton";
 import type { trainings } from "@/lib/site-data";
 import { serviceWhatsappMessage, whatsappLink } from "@/lib/utils";
@@ -54,9 +53,58 @@ const trainingModalContent: Record<string, TrainingModalContent> = {
   },
 };
 
+const fallbackTrainingImages: Record<string, Pick<TrainingModalContent, "image" | "imageAlt">> = {
+  "nr-10-seguranca-em-eletricidade": {
+    image: "/gallery-optimized/servico-dsc-0696.webp",
+    imageAlt: "Sinalização de segurança em área técnica",
+  },
+  "nr-12-seguranca-em-maquinas": {
+    image: "/gallery-optimized/servico-dsc-0698.webp",
+    imageAlt: "Sinalização preventiva aplicada em ambiente operacional",
+  },
+  "nr-23-protecao-contra-incendios": {
+    image: "/gallery-optimized/servico-dsc-0695.webp",
+    imageAlt: "Extintor, hidrante e sinalização de prevenção de incêndio",
+  },
+  "nr-33-espacos-confinados": {
+    image: "/gallery-optimized/servico-img-20190806-wa0023.webp",
+    imageAlt: "Equipamento técnico usado em verificação preventiva",
+  },
+};
+
+function getTrainingModalContent(training: Training): TrainingModalContent {
+  const explicitContent = trainingModalContent[training.slug];
+  if (explicitContent) return explicitContent;
+
+  const fallbackImage = fallbackTrainingImages[training.slug] ?? {
+    image: "/hero-fire-prevention.jpg",
+    imageAlt: "Equipe em treinamento de prevenção de incêndio e segurança do trabalho",
+  };
+
+  const paragraphs = [
+    training.short,
+    `Normas e referências: ${training.relatedNorms.join(", ")}.`,
+    `Público indicado: ${training.audience}`,
+    `Formato: ${training.modality}`,
+    training.practical,
+    `Objetivos principais: ${training.objectives.join("; ")}.`,
+  ];
+
+  if (training.syllabus.length > 0) {
+    paragraphs.push(`Conteúdo abordado: ${training.syllabus.join(", ")}.`);
+  }
+
+  return {
+    title: training.name,
+    image: fallbackImage.image,
+    imageAlt: fallbackImage.imageAlt,
+    paragraphs,
+  };
+}
+
 export function TrainingCard({ training }: { training: Training }) {
   const Icon = training.icon;
-  const modalContent = trainingModalContent[training.slug];
+  const modalContent = getTrainingModalContent(training);
 
   return (
     <article className="card group flex h-full flex-col p-6">
@@ -66,13 +114,7 @@ export function TrainingCard({ training }: { training: Training }) {
       <h3 className="text-xl font-black text-zinc-950">{training.name}</h3>
       <p className="mt-3 flex-1 text-sm leading-7 text-zinc-600">{training.short}</p>
       <div className="mt-6 grid gap-2 sm:grid-cols-2">
-        {modalContent ? (
-          <TrainingLearnMoreButton content={modalContent} trainingName={training.name} trainingSlug={training.slug} />
-        ) : (
-          <Link className="btn btn-ghost justify-center" href={`/treinamentos/${training.slug}`}>
-            Saiba mais <ArrowRight className="h-4 w-4" />
-          </Link>
-        )}
+        <TrainingLearnMoreButton content={modalContent} trainingName={training.name} trainingSlug={training.slug} />
         <a className="btn btn-primary justify-center" href={whatsappLink(serviceWhatsappMessage(`treinamento de ${training.name}`))} target="_blank" rel="noreferrer">
           <MessageSquare className="h-4 w-4" /> Solicitar
         </a>
