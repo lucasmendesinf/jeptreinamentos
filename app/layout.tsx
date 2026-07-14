@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     description: "Treinamentos que preparam pessoas e protegem vidas.",
     images: [
       {
-        url: "/og.png",
+        url: "/og.jpg",
         width: 1200,
         height: 630,
         alt: "J&P Treinamentos - treinamentos que preparam pessoas e protegem vidas",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "J&P Treinamentos",
     description: "Prevenção de incêndios e segurança do trabalho para empresas.",
-    images: ["/og.png"],
+    images: ["/og.jpg"],
   },
   icons: {
     icon: [

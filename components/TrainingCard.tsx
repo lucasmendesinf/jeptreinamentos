@@ -15,7 +15,7 @@ type TrainingModalContent = {
 const trainingModalContent: Record<string, TrainingModalContent> = {
   "brigada-de-incendio": {
     title: "Brigada de Incêndio",
-    image: "/jeptreinamentos/servico-img-20190806-wa0009.jpg",
+    image: "/jeptreinamentos/gallery-optimized/servico-img-20190806-wa0009.webp",
     imageAlt: "Treinamento prático de brigada de incêndio com uso de mangueira",
     paragraphs: [
       "Oferecemos treinamentos de brigadas de incêndios para empresas, edifícios comerciais e residenciais, com carga horária de 4 horas a 8 horas, seguindo todos os padrões das normas NPT-17 e NR 23.",
@@ -25,7 +25,7 @@ const trainingModalContent: Record<string, TrainingModalContent> = {
   },
   "nr-11-operador-de-empilhadeira": {
     title: "Curso NR 11 - Operador de Empilhadeira",
-    image: "/jeptreinamentos/servico-dsc-0698.jpg",
+    image: "/jeptreinamentos/gallery-optimized/servico-dsc-0698.webp",
     imageAlt: "Sinalização de segurança em área operacional",
     paragraphs: [
       "Oferecemos curso de operador de empilhadeira.",
@@ -35,7 +35,7 @@ const trainingModalContent: Record<string, TrainingModalContent> = {
   },
   "nr-35-trabalho-em-altura": {
     title: "Curso NR 35 - Trabalho em Altura",
-    image: "/jeptreinamentos/servico-img-20190806-wa0020.jpg",
+    image: "/jeptreinamentos/gallery-optimized/servico-img-20190806-wa0020.webp",
     imageAlt: "Atividade prática em área elevada durante treinamento de segurança",
     paragraphs: [
       "Oferecemos treinamentos para trabalho em altura.",
@@ -45,7 +45,7 @@ const trainingModalContent: Record<string, TrainingModalContent> = {
   },
   "nr-6-epi": {
     title: "Curso NR 6 - Equipamentos de Proteção Individual",
-    image: "/jeptreinamentos/hero-fire-prevention.png",
+    image: "/jeptreinamentos/hero-fire-prevention.jpg",
     imageAlt: "Profissionais com equipamentos de proteção em ambiente de prevenção de incêndio",
     paragraphs: [
       "Realizamos treinamentos referentes à NR 6, Equipamentos de Proteção Individual, trazendo aos colaboradores conhecimento sobre a utilização correta dos EPIs e suas particularidades.",

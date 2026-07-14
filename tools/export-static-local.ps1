@@ -22,10 +22,11 @@ function Sync-BuildAssets {
     return
   }
 
-  if (!(Test-Path -LiteralPath $targetAssets)) {
-    New-Item -ItemType Directory -Path $targetAssets | Out-Null
+  if (Test-Path -LiteralPath $targetAssets) {
+    Remove-Item -LiteralPath $targetAssets -Recurse -Force
   }
 
+  New-Item -ItemType Directory -Path $targetAssets | Out-Null
   Get-ChildItem -LiteralPath $sourceAssets -File | Copy-Item -Destination $targetAssets -Force
 }
 
@@ -42,6 +43,9 @@ function Sync-PublicAssets {
   }
 
   $publicFiles = @(
+    "hero-fire-prevention.jpg",
+    "og.jpg",
+    "logo-jp.jpg",
     "favicon.ico",
     "favicon.png",
     "favicon-32x32.png",
@@ -109,6 +113,10 @@ function Fix-AssetReferences([string] $html) {
   return $html
 }
 
+function Remove-LocalFontReferences([string] $html) {
+  return [regex]::Replace($html, '<style data-vinext-fonts>[\s\S]*?</style>', '')
+}
+
 function Write-HtmlFile([string] $target, [string] $html) {
   for ($attempt = 1; $attempt -le 5; $attempt++) {
     try {
@@ -144,6 +152,7 @@ try {
     $html = [System.Text.Encoding]::UTF8.GetString([System.IO.File]::ReadAllBytes($tmp))
     $html = Fix-LocalPaths $html
     $html = Fix-AssetReferences $html
+    $html = Remove-LocalFontReferences $html
 
     $targetDir = if ($route -eq "") { $root } else { Join-Path $root $route }
     if (!(Test-Path -LiteralPath $targetDir)) {

@@ -2,7 +2,7 @@ import { ExternalLink, Mail, Phone } from "lucide-react";
 import { navItems, services, siteConfig } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/utils";
 
-const logoSrc = "/jeptreinamentos/logo-jp.png";
+const logoSrc = "/jeptreinamentos/logo-jp.jpg";
 
 function publicHref(href: string) {
   if (href === "/") return "/jeptreinamentos/";

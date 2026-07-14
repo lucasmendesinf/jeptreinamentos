@@ -6,7 +6,7 @@ import { useState } from "react";
 import { navItems } from "@/lib/site-data";
 import { cx, whatsappLink } from "@/lib/utils";
 
-const logoSrc = "/jeptreinamentos/logo-jp.png";
+const logoSrc = "/jeptreinamentos/logo-jp.jpg";
 
 function publicHref(href: string) {
   if (href === "/") return "/jeptreinamentos/";

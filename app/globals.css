@@ -76,7 +76,7 @@ textarea {
   inset: 0;
   background:
     linear-gradient(100deg, rgba(9, 9, 11, 0.98) 0%, rgba(24, 24, 27, 0.88) 36%, rgba(127, 29, 29, 0.55) 68%, rgba(9, 9, 11, 0.28) 100%),
-    url("/hero-fire-prevention.png") center / cover no-repeat;
+    url("/hero-fire-prevention.jpg") center / cover no-repeat;
   animation: hero-drift 18s ease-in-out infinite alternate;
   transform: scale(1.04);
   z-index: -3;
@@ -644,7 +644,7 @@ body {
   background:
     linear-gradient(100deg, rgba(5, 5, 6, 0.98) 0%, rgba(18, 18, 20, 0.92) 35%, rgba(127, 29, 29, 0.62) 68%, rgba(7, 7, 8, 0.42) 100%),
     radial-gradient(circle at 74% 55%, rgba(249, 115, 22, 0.42), transparent 24rem),
-    url("/jeptreinamentos/hero-fire-prevention.png") center / cover no-repeat;
+    url("/jeptreinamentos/hero-fire-prevention.jpg") center / cover no-repeat;
   animation: hero-drift 20s ease-in-out infinite alternate;
 }
 
