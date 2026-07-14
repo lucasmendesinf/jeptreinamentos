@@ -2,7 +2,9 @@
 deployment:
   tasks:
     - export DEPLOYPATH=$HOME/public_html/
+    - export BASEPATH=$HOME/public_html/jeptreinamentos/
     - /bin/mkdir -p $DEPLOYPATH
+    - /bin/mkdir -p $BASEPATH
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp favicon.ico favicon.png favicon-32x32.png apple-touch-icon.png favicon.svg file.svg globe.svg window.svg $DEPLOYPATH
     - /bin/cp logo-jp.png og.png hero-fire-prevention.png $DEPLOYPATH
@@ -11,3 +13,9 @@ deployment:
     - /bin/cp -R assets $DEPLOYPATH
     - /bin/cp -R gallery-optimized $DEPLOYPATH
     - /bin/cp -R contato galeria normas-regulamentadoras politica-de-privacidade servicos sobre termos-de-cookies termos-de-uso treinamentos $DEPLOYPATH
+    - /bin/cp favicon.ico favicon.png favicon-32x32.png apple-touch-icon.png favicon.svg file.svg globe.svg window.svg $BASEPATH
+    - /bin/cp logo-jp.png og.png hero-fire-prevention.png $BASEPATH
+    - /bin/cp gallery-*.jpg galeria-*.jpg $BASEPATH
+    - /bin/cp servico-*.jpg $BASEPATH
+    - /bin/cp -R assets $BASEPATH
+    - /bin/cp -R gallery-optimized $BASEPATH
