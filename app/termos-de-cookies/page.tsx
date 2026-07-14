@@ -12,27 +12,27 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: "1. Uso do site",
-    text: "As informacoes publicadas apresentam a J&P Treinamentos, seus servicos, treinamentos, canais de contato e conteudos institucionais. O usuario deve utilizar o site de forma licita, sem tentar comprometer seu funcionamento, seguranca ou conteudo.",
+    text: "As informações publicadas apresentam a J&P Treinamentos, seus serviços, treinamentos, canais de contato e conteúdos institucionais. O usuário deve utilizar o site de forma lícita, sem tentar comprometer seu funcionamento, segurança ou conteúdo.",
   },
   {
     title: "2. Cookies utilizados",
-    text: "O site pode utilizar cookies necessarios ao funcionamento, melhoria da navegacao e registro de preferencias, como o aceite do aviso de cookies. Esses recursos ajudam a manter uma experiencia mais estavel e adequada para o visitante.",
+    text: "O site pode utilizar cookies necessários ao funcionamento, melhoria da navegação e registro de preferências, como o aceite do aviso de cookies. Esses recursos ajudam a manter uma experiência mais estável e adequada para o visitante.",
   },
   {
     title: "3. Dados pessoais",
-    text: "Dados enviados por formularios ou links de contato, como nome, e-mail, telefone, empresa, cidade, assunto e mensagem, sao utilizados para responder solicitacoes, organizar atendimento e manter registros necessarios a comunicacao, observando a Lei Geral de Protecao de Dados Pessoais.",
+    text: "Dados enviados por formulários ou links de contato, como nome, e-mail, telefone, empresa, cidade, assunto e mensagem, são utilizados para responder solicitações, organizar atendimento e manter registros necessários à comunicação, observando a Lei Geral de Proteção de Dados Pessoais.",
   },
   {
     title: "4. Gerenciamento de cookies",
-    text: "O usuario pode gerenciar, bloquear ou apagar cookies nas configuracoes do navegador. O bloqueio pode afetar preferencias salvas, como o registro de aceite do aviso.",
+    text: "O usuário pode gerenciar, bloquear ou apagar cookies nas configurações do navegador. O bloqueio pode afetar preferências salvas, como o registro de aceite do aviso.",
   },
   {
     title: "5. Links externos",
-    text: "O site pode conter links para WhatsApp, redes sociais e outros ambientes externos. A J&P Treinamentos nao se responsabiliza por politicas, disponibilidade ou conteudos de sites de terceiros.",
+    text: "O site pode conter links para WhatsApp, redes sociais e outros ambientes externos. A J&P Treinamentos não se responsabiliza por políticas, disponibilidade ou conteúdos de sites de terceiros.",
   },
   {
-    title: "6. Atualizacoes",
-    text: "Estes termos podem ser atualizados para refletir mudancas no site, nos servicos, em requisitos legais ou em praticas internas de privacidade e atendimento.",
+    title: "6. Atualizações",
+    text: "Estes termos podem ser atualizados para refletir mudanças no site, nos serviços, em requisitos legais ou em práticas internas de privacidade e atendimento.",
   },
 ];
 
@@ -47,7 +47,7 @@ export default function CookieTermsPage() {
           <p className="eyebrow text-orange-300">Termos e privacidade</p>
           <h1 className="mt-4 max-w-4xl text-5xl font-black leading-tight md:text-6xl">Termos de cookies e uso do site.</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-200">
-            Entenda como usamos cookies, preferencias de navegacao e dados enviados pelos canais de contato.
+            Entenda como usamos cookies, preferências de navegação e dados enviados pelos canais de contato.
           </p>
         </div>
       </section>
@@ -65,7 +65,7 @@ export default function CookieTermsPage() {
               <section>
                 <h2 className="text-2xl font-black text-zinc-950">7. Contato</h2>
                 <p className="mt-3 leading-8 text-zinc-700">
-                  Duvidas sobre estes termos, privacidade ou tratamento de dados podem ser enviadas para{" "}
+                  Dúvidas sobre estes termos, privacidade ou tratamento de dados podem ser enviadas para{" "}
                   <a className="font-black text-red-700 underline underline-offset-4" href={siteConfig.emailHref}>
                     {siteConfig.email}
                   </a>
@@ -79,9 +79,9 @@ export default function CookieTermsPage() {
             <ShieldCheck className="h-10 w-10 text-red-700" aria-hidden="true" />
             <h2 className="mt-4 text-2xl font-black text-zinc-950">Resumo</h2>
             <p className="mt-3 leading-7 text-zinc-600">
-              O aviso de cookies registra apenas sua decisao no navegador. Voce pode limpar essa preferencia pelas configuracoes do proprio navegador.
+              O aviso de cookies registra apenas sua decisão no navegador. Você pode limpar essa preferência pelas configurações do próprio navegador.
             </p>
-            <Link className="btn btn-primary mt-6 w-full" href="/contato">
+            <Link className="btn btn-primary mt-6 w-full" href="/jeptreinamentos/contato">
               Falar com a equipe
             </Link>
           </aside>

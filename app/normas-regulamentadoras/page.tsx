@@ -6,7 +6,7 @@ import { nrItems } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "Normas Regulamentadoras",
-  description: "Pagina informativa sobre NRs trabalhadas pela J&P Treinamentos.",
+  description: "Página informativa sobre NRs trabalhadas pela J&P Treinamentos.",
   alternates: { canonical: "/normas-regulamentadoras" },
 };
 
@@ -18,7 +18,7 @@ export default function NRsPage() {
           <p className="eyebrow text-orange-300">Normas Regulamentadoras</p>
           <h1 className="mt-4 max-w-4xl text-5xl font-black leading-tight md:text-6xl">Saiba mais sobre as Normas Regulamentadoras trabalhadas pela J&P.</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-200">
-            As normas regulamentadoras determinam e orientam procedimentos relacionados a saude e seguranca do trabalho. A J&P Treinamentos segue essas orientacoes para replicar conhecimento aos alunos.
+            As normas regulamentadoras determinam e orientam procedimentos relacionados à saúde e segurança do trabalho. A J&P Treinamentos segue essas orientações para replicar conhecimento aos alunos.
           </p>
         </div>
       </section>
@@ -28,11 +28,11 @@ export default function NRsPage() {
           <div className="mb-10 flex gap-4 rounded-sm border border-orange-200 bg-orange-50 p-5 text-orange-950">
             <AlertTriangle className="mt-1 h-6 w-6 shrink-0" />
             <p className="leading-7">
-              Conteudo informativo baseado na pagina antiga da J&P. A necessidade de cada treinamento depende da atividade, funcao, ambiente e legislacao aplicavel; para interpretacoes especificas, consulte a norma vigente e profissionais habilitados.
+              Conteúdo informativo baseado na página antiga da J&P. A necessidade de cada treinamento depende da atividade, função, ambiente e legislação aplicável; para interpretações específicas, consulte a norma vigente e profissionais habilitados.
             </p>
           </div>
-          <SectionHeading title="Descricao de algumas NRs">
-            Abaixo estao as normas apresentadas pela J&P no site antigo, com redacao revisada para ficar mais clara e profissional.
+          <SectionHeading title="Descrição de algumas NRs">
+            Abaixo estão as normas apresentadas pela J&P no site antigo, com redação revisada para ficar mais clara e profissional.
           </SectionHeading>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {nrItems.map((item) => (
@@ -43,7 +43,7 @@ export default function NRsPage() {
               </article>
             ))}
           </div>
-          <Link className="btn btn-primary mt-8" href="/contato">Solicitar orientacao</Link>
+          <Link className="btn btn-primary mt-8" href="/jeptreinamentos/contato">Solicitar orientação</Link>
         </div>
       </section>
     </div>

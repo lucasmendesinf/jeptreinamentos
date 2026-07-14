@@ -5,7 +5,7 @@ export function whatsappLink(message = siteConfig.defaultWhatsappMessage) {
 }
 
 export function serviceWhatsappMessage(item: string) {
-  return `Ola! Gostaria de solicitar um orcamento para ${item}.`;
+  return `Olá! Gostaria de solicitar um orçamento para ${item}.`;
 }
 
 export function cx(...classes: Array<string | false | null | undefined>) {

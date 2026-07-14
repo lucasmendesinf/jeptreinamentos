@@ -1,7 +1,6 @@
 "use client";
 
 import { X } from "lucide-react";
-import Image from "next/image";
 import { useMemo, useState } from "react";
 import { galleryItems } from "@/lib/site-data";
 import { cx } from "@/lib/utils";
@@ -32,13 +31,28 @@ export function GalleryGrid({ preview = false }: { preview?: boolean }) {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => (
-          <button key={item.title} type="button" className="group relative aspect-[4/3] overflow-hidden rounded-sm bg-zinc-900 text-left" onClick={() => setActive(item)}>
-            <Image src={item.image} alt={item.alt} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition duration-500 group-hover:scale-105" />
+          <a
+            key={item.title}
+            href={item.image}
+            target="_blank"
+            rel="noreferrer"
+            className="group relative aspect-[4/3] overflow-hidden rounded-sm bg-zinc-900 text-left"
+            onClick={(event) => {
+              event.preventDefault();
+              setActive(item);
+            }}
+          >
+            <img
+              src={item.image}
+              alt={item.alt}
+              loading={preview ? "eager" : "lazy"}
+              className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            />
             <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 to-transparent p-5 text-white">
               <span className="block text-xs font-black uppercase tracking-[0.16em] text-orange-300">{item.category}</span>
               <span className="mt-1 block text-lg font-black">{item.title}</span>
             </span>
-          </button>
+          </a>
         ))}
       </div>
 
@@ -48,8 +62,11 @@ export function GalleryGrid({ preview = false }: { preview?: boolean }) {
             <X className="h-6 w-6" />
           </button>
           <figure className="max-w-5xl">
-            <Image src={active.image} alt={active.alt} width={1200} height={800} className="max-h-[78vh] w-full rounded-sm object-contain" />
+            <img src={active.image} alt={active.alt} className="max-h-[78vh] w-full rounded-sm object-contain" />
             <figcaption className="mt-3 text-center text-white">{active.title}</figcaption>
+            <a className="btn btn-primary mx-auto mt-4 w-fit" href={active.image} target="_blank" rel="noreferrer">
+              Abrir imagem original
+            </a>
           </figure>
         </div>
       )}

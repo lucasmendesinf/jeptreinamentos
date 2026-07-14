@@ -1,139 +1,134 @@
-import Link from "next/link";
-import { ArrowRight, CheckCircle2, Flame, ShieldCheck } from "lucide-react";
-import { GalleryGrid } from "@/components/GalleryGrid";
+﻿import Link from "next/link";
+import {
+  ArrowRight,
+  CheckCircle2,
+  Flame,
+  HardHat,
+  Siren,
+  Sparkles,
+} from "lucide-react";
 import { MotionBlock } from "@/components/Motion";
+import { NrModalButton } from "@/components/NrModalButton";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { TrainingCard } from "@/components/TrainingCard";
-import { differentials, faqItems, nrItems, processSteps, services, trainings, trustIndicators } from "@/lib/site-data";
+import { differentials, faqItems, nrItems, processSteps, services, trainings } from "@/lib/site-data";
 import { whatsappLink } from "@/lib/utils";
 
 export default function Home() {
+  const commandHighlights = [
+    { icon: Flame, label: "Brigada de incêndio", value: "formação e reciclagem" },
+    { icon: HardHat, label: "Segurança do trabalho", value: "NRs e operação segura" },
+    { icon: Siren, label: "Emergência organizada", value: "rotas, alarmes e resposta" },
+  ];
+  const featuredTrainingSlugs = new Set(["brigada-de-incendio", "nr-6-epi", "nr-11-operador-de-empilhadeira", "nr-35-trabalho-em-altura"]);
+  const featuredTrainings = trainings.filter((training) => featuredTrainingSlugs.has(training.slug));
+
   return (
     <>
-      <section className="hero-section">
+      <section className="hero-section hero-next">
         <div className="hero-fire-background" />
-        <div className="hero-sparks" aria-hidden="true" />
+        <div className="spark-field spark-field-a" aria-hidden="true" />
+        <div className="spark-field spark-field-b" aria-hidden="true" />
         <div className="hero-heat" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white to-transparent" />
-        <div className="relative mx-auto grid min-h-[92vh] max-w-7xl items-center gap-10 px-4 pb-20 pt-32 sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:px-8">
-          <MotionBlock>
-            <p className="eyebrow text-orange-300">Prevencao, treinamento e resposta</p>
-            <h1 className="mt-5 max-w-4xl text-5xl font-black leading-[1.02] text-white md:text-7xl">
-              Treinamentos que preparam pessoas e protegem vidas
+        <div className="hero-gridline" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#f7f3ee] to-transparent" />
+
+        <div className="relative mx-auto grid min-h-[76vh] max-w-7xl items-start gap-5 px-4 pb-6 pt-[10vh] sm:px-6 lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:px-8 lg:pt-[18.92vh] xl:min-h-[78vh]">
+          <MotionBlock className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-300/30 bg-black/35 px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.14em] text-orange-200 backdrop-blur">
+              <Sparkles className="h-3.5 w-3.5" />
+              Prevenção, treinamento e resposta
+            </div>
+            <h1 className="mt-3 text-4xl font-black leading-[1.01] text-white sm:text-5xl md:text-[3.45rem] xl:text-[4rem]">
+              Treinamento real para equipes que enfrentam risco real.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-100 md:text-xl">
-              Capacitacao em seguranca do trabalho, prevencao de incendios e formacao de brigadistas para empresas e profissionais.
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-zinc-100 md:text-base">
+              A J&P prepara brigadistas, operadores e equipes de empresas com aulas objetivas, prática orientada e foco em prevenção de incêndios e segurança do trabalho.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link className="btn btn-primary justify-center" href="/contato">
-                Solicitar orcamento <ArrowRight className="h-4 w-4" />
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row">
+              <Link className="btn btn-primary justify-center" href="/jeptreinamentos/contato">
+                Solicitar orçamento <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link className="btn border-white/25 bg-white/10 text-white hover:bg-white/20" href="/treinamentos">
-                Conhecer treinamentos
+              <Link className="btn border-white/25 bg-black/25 text-white hover:bg-white/15" href="/jeptreinamentos/treinamentos">
+                Ver treinamentos
               </Link>
+            </div>
+            <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              {commandHighlights.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div key={item.label} className="hero-metric">
+                    <Icon className="h-5 w-5 text-orange-300" />
+                    <span>{item.label}</span>
+                    <strong>{item.value}</strong>
+                  </div>
+                );
+              })}
             </div>
           </MotionBlock>
 
-          <MotionBlock delay={0.12} className="hidden lg:block">
-            <div className="relative ml-auto max-w-md border border-white/15 bg-white/10 p-6 text-white shadow-2xl backdrop-blur-md">
-              <div className="absolute -left-5 top-8 h-24 w-2 bg-orange-400" />
-              <Flame className="h-12 w-12 text-orange-300" />
-              <h2 className="mt-6 text-2xl font-black">Preparacao com criterio, clareza e pratica.</h2>
-              <p className="mt-4 leading-7 text-zinc-100">
-                Conteudo organizado para ajudar empresas a treinar equipes, reforcar condutas preventivas e apoiar adequacoes de seguranca.
+          <MotionBlock delay={0.12} className="hidden lg:block lg:justify-self-end">
+            <div className="command-panel">
+              <p className="command-eyebrow">Atendimento para empresas</p>
+              <h2 className="command-title">Prevenção, treinamentos e apoio técnico.</h2>
+              <p className="command-copy">
+                Capacitação prática para equipes, brigadistas e operações que exigem mais segurança.
               </p>
-              <div className="mt-6 grid gap-3">
-                {["Atendimento comercial rapido", "Treinamentos para empresas", "Apoio em vistorias e adequacoes"].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
+              <div className="command-list">
+                {[
+                  "Brigada de incêndio",
+                  "Treinamentos de NRs",
+                  "Sinalização e rotas de fuga",
+                ].map((item) => (
+                  <div key={item} className="command-check">
                     <CheckCircle2 className="h-5 w-5 text-orange-300" /> {item}
                   </div>
                 ))}
               </div>
+              <a className="btn btn-primary mt-6 w-full justify-center" href={whatsappLink()} target="_blank" rel="noreferrer">
+                Solicitar orçamento <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           </MotionBlock>
         </div>
       </section>
 
-      <section className="section pt-0">
-        <div className="mx-auto grid max-w-7xl gap-4 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
-          {trustIndicators.map((item) => (
-            <MotionBlock key={item.label} className="card p-6">
-              <p className="text-2xl font-black text-red-700">{item.value}</p>
-              <h2 className="mt-2 font-black text-zinc-950">{item.label}</h2>
-              <p className="mt-2 text-sm text-zinc-500">{item.note}</p>
-            </MotionBlock>
-          ))}
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[.85fr_1.15fr] lg:px-8">
-          <MotionBlock>
-            <SectionHeading eyebrow="Sobre a empresa" title="Seguranca do trabalho com responsabilidade desde 2019">
-              A J&P Treinamentos atua com capacitacao, prevencao de incendios e apoio a empresas e pessoas fisicas que precisam de orientacao objetiva, preco justo e profissionais qualificados.
-            </SectionHeading>
-            <Link className="btn btn-primary mt-7" href="/sobre">
-              Conheca nossa historia
-            </Link>
-          </MotionBlock>
-          <MotionBlock delay={0.1} className="grid gap-4 sm:grid-cols-2">
-            {["Cumprimento das normas regulamentadoras", "Foco em protecao e seguranca", "Atendimento personalizado", "Responsavel: Pedro Alex Machado"].map((item) => (
-              <div key={item} className="flex gap-3 rounded-sm border border-zinc-200 bg-white p-5">
-                <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-red-700" />
-                <p className="font-bold text-zinc-800">{item}</p>
-              </div>
-            ))}
-          </MotionBlock>
-        </div>
-      </section>
-
-      <section className="section bg-zinc-50">
+      <section className="section bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Principais treinamentos" title="Capacitacoes para operacoes mais seguras" align="center">
-            Cards preparados com campos configuraveis para carga horaria, validade e normas relacionadas, sem inventar requisitos legais.
+          <SectionHeading eyebrow="Principais treinamentos" title="Capacitações para operações mais seguras" align="center">
+            Formações estruturadas para brigadistas, operadores e equipes que precisam reconhecer riscos, agir com critério e responder melhor em emergências.
           </SectionHeading>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {trainings.map((training) => <TrainingCard key={training.slug} training={training} />)}
+            {featuredTrainings.map((training) => <TrainingCard key={training.slug} training={training} />)}
           </div>
         </div>
       </section>
 
-      <section className="border-y border-zinc-200 bg-white py-8">
-        <div className="mx-auto grid max-w-7xl gap-5 px-4 sm:px-6 lg:grid-cols-[.85fr_1.15fr] lg:items-center lg:px-8">
+      <section className="border-y border-red-950/10 bg-zinc-950 py-10 text-white">
+        <div className="mx-auto grid max-w-7xl gap-6 px-4 sm:px-6 lg:grid-cols-[.8fr_1.2fr] lg:items-center lg:px-8">
           <div>
-            <p className="eyebrow">Normas Regulamentadoras (NRs)</p>
-            <h2 className="mt-2 text-2xl font-black text-zinc-950 md:text-3xl">Acesso rapido as normas trabalhadas</h2>
-            <Link className="mt-4 inline-flex text-sm font-black text-red-700 hover:text-red-900" href="/normas-regulamentadoras">
-              Ver explicacao completa <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
+            <p className="eyebrow text-orange-300">Normas Regulamentadoras</p>
+            <h2 className="mt-2 text-2xl font-black text-white md:text-3xl">Acesso rápido aos temas mais solicitados</h2>
           </div>
           <div className="flex flex-wrap gap-2">
             {nrItems.map((item) => (
-              <Link
-                key={item.code}
-                href="/normas-regulamentadoras"
-                className="rounded-sm border border-zinc-200 bg-zinc-50 px-3 py-2 text-sm font-black text-zinc-800 transition hover:border-red-300 hover:bg-red-50 hover:text-red-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
-                aria-label={`Ver informacoes sobre ${item.code} - ${item.title}`}
-              >
-                <span className="text-red-700">{item.code}</span>
-                <span className="ml-2 font-bold text-zinc-600">{item.title}</span>
-              </Link>
+              <NrModalButton key={item.code} code={item.code} title={item.title} summary={item.summary} />
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section bg-[#f7f3ee]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Servicos" title="Prevencao, sinalizacao, equipamentos e vistorias">
-            Atendimento para treinamentos, adequacoes, rotas de fuga, placas, testes, orientacao sobre extintores e apoio em vistorias.
+          <SectionHeading eyebrow="Serviços" title="Prevenção, sinalização, equipamentos e vistorias">
+            Atendimento para treinamentos, adequações, rotas de fuga, placas, testes, orientação sobre extintores e apoio em vistorias.
           </SectionHeading>
           <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {services.slice(0, 6).map((service) => <ServiceCard key={service.title} service={service} />)}
           </div>
-          <Link className="btn btn-ghost mt-8" href="/servicos">
-            Ver todos os servicos <ArrowRight className="h-4 w-4" />
+          <Link className="btn btn-ghost mt-8" href="/jeptreinamentos/servicos">
+            Ver todos os serviços <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
@@ -142,7 +137,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div>
             <p className="eyebrow text-orange-300">Diferenciais</p>
-            <h2 className="section-title text-white">Treinamento serio, pratico e adequado a realidade da empresa</h2>
+            <h2 className="section-title text-white">Treinamento sério, prático e adequado à realidade da empresa</h2>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {differentials.map((item) => (
@@ -155,12 +150,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Etapas do atendimento" title="Um processo claro do primeiro contato a entrega" />
+          <SectionHeading eyebrow="Etapas do atendimento" title="Um processo claro do primeiro contato à entrega" />
           <div className="mt-10 grid gap-4 md:grid-cols-5">
             {processSteps.map((step, index) => (
-              <div key={step} className="relative rounded-sm border border-zinc-200 bg-white p-5">
+              <div key={step} className="relative rounded-sm border border-zinc-200 bg-white p-5 shadow-sm">
                 <span className="text-3xl font-black text-red-700">{String(index + 1).padStart(2, "0")}</span>
                 <p className="mt-4 font-black text-zinc-900">{step}</p>
               </div>
@@ -169,18 +164,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section bg-zinc-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <SectionHeading eyebrow="Galeria" title="Ambientes, equipamentos e treinamentos em destaque" />
-          <div className="mt-10">
-            <GalleryGrid preview />
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
+      <section className="section bg-white">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
-          <SectionHeading eyebrow="Perguntas frequentes" title="Respostas objetivas, sem promessas fora de contexto" />
+          <SectionHeading eyebrow="Perguntas frequentes" title="Respostas objetivas para contratar com mais segurança" />
           <div className="grid gap-3">
             {faqItems.map((item) => (
               <details key={item.question} className="rounded-sm border border-zinc-200 bg-white p-5">
@@ -196,10 +182,10 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
           <div>
             <p className="eyebrow text-orange-200">Chamada final</p>
-            <h2 className="section-title max-w-3xl text-white">Nao espere uma emergencia para investir em prevencao.</h2>
+            <h2 className="section-title max-w-3xl text-white">Não espere uma emergência para investir em prevenção.</h2>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <Link className="btn bg-white text-red-800 hover:bg-zinc-100" href="/contato">Solicitar orcamento</Link>
+            <Link className="btn bg-white text-red-800 hover:bg-zinc-100" href="/jeptreinamentos/contato">Solicitar orçamento</Link>
             <a className="btn border-white/30 bg-red-950/30 text-white hover:bg-red-950/50" href={whatsappLink()} target="_blank" rel="noreferrer">
               Falar pelo WhatsApp
             </a>

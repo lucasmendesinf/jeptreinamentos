@@ -16,7 +16,7 @@ export function CookieConsent() {
     return () => window.cancelAnimationFrame(frame);
   }, []);
 
-  function close(decision: "accepted" | "closed") {
+  function close(decision: "accepted" | "cancelled") {
     window.localStorage.setItem(storageKey, decision);
     setVisible(false);
     setTermsOpen(false);
@@ -25,9 +25,13 @@ export function CookieConsent() {
   return (
     <>
       {visible && (
-        <section className="fixed bottom-5 left-5 z-[80] grid w-[min(430px,calc(100%-40px))] gap-5 rounded-sm border border-white/15 bg-zinc-950/95 p-5 text-white shadow-2xl shadow-black/35 backdrop-blur-xl" role="region" aria-label="Aviso de termos e cookies">
+        <section
+          className="fixed bottom-5 left-5 z-[80] grid w-[min(430px,calc(100%-40px))] gap-5 rounded-sm border border-white/15 bg-zinc-950/95 p-5 text-white shadow-2xl shadow-black/35 backdrop-blur-xl"
+          role="region"
+          aria-label="Aviso de cookies"
+        >
           <p className="text-center text-sm font-semibold leading-6">
-            A J&P Treinamentos utiliza cookies para melhorar sua navegacao, registrar preferencias e apoiar o funcionamento do site. Ao prosseguir, voce concorda com nossos{" "}
+            A J&P Treinamentos utiliza cookies para melhorar sua navegação, registrar preferências e apoiar o funcionamento do site. Você pode aceitar ou cancelar o uso de cookies opcionais. Consulte nossos{" "}
             <button className="font-black underline underline-offset-4" type="button" onClick={() => setTermsOpen(true)}>
               termos de cookies e privacidade
             </button>
@@ -35,10 +39,10 @@ export function CookieConsent() {
           </p>
           <div className="grid grid-cols-2 gap-3">
             <button className="btn bg-white text-zinc-950 hover:bg-zinc-100" type="button" onClick={() => close("accepted")}>
-              Prosseguir
+              Aceitar
             </button>
-            <button className="btn border border-white/70 bg-transparent text-white hover:bg-white/10" type="button" onClick={() => close("closed")}>
-              Fechar
+            <button className="btn border border-white/70 bg-transparent text-white hover:bg-white/10" type="button" onClick={() => close("cancelled")}>
+              Cancelar
             </button>
           </div>
         </section>
@@ -55,24 +59,24 @@ export function CookieConsent() {
               Termos de uso, cookies e privacidade
             </h2>
             <div className="mt-6 grid gap-5 leading-7">
-              <p>Este site possui finalidade institucional e comercial, apresentando os servicos, treinamentos e canais de contato da J&P Treinamentos.</p>
+              <p>Este site possui finalidade institucional e comercial, apresentando os serviços, treinamentos e canais de contato da J&P Treinamentos.</p>
               <section>
                 <h3 className="font-black text-zinc-950">Uso de cookies</h3>
-                <p>Podemos utilizar cookies necessarios ao funcionamento do site, melhoria da navegacao e registro de preferencias, como o aceite deste aviso.</p>
+                <p>Podemos utilizar cookies necessários ao funcionamento do site, melhoria da navegação e registro de preferências, como a decisão sobre este aviso.</p>
               </section>
               <section>
-                <h3 className="font-black text-zinc-950">Dados enviados pelo formulario</h3>
-                <p>Dados como nome, e-mail, telefone, empresa, cidade e mensagem sao usados para responder solicitacoes comerciais e organizar o atendimento, observando a LGPD.</p>
+                <h3 className="font-black text-zinc-950">Dados enviados pelo formulário</h3>
+                <p>Dados como nome, e-mail, telefone, empresa, cidade e mensagem são usados para responder solicitações comerciais e organizar o atendimento, observando a LGPD.</p>
               </section>
               <section>
                 <h3 className="font-black text-zinc-950">Gerenciamento</h3>
-                <p>Voce pode gerenciar ou bloquear cookies nas configuracoes do navegador. O bloqueio pode afetar preferencias salvas e partes da experiencia de navegacao.</p>
+                <p>Você pode gerenciar ou bloquear cookies nas configurações do navegador. O bloqueio pode afetar preferências salvas e partes da experiência de navegação.</p>
               </section>
               <section>
                 <h3 className="font-black text-zinc-950">Contato</h3>
                 <p>
-                  Duvidas sobre cookies, privacidade ou tratamento de dados podem ser enviadas pela pagina de{" "}
-                  <Link className="font-black text-red-700 underline underline-offset-4" href="/contato">
+                  Dúvidas sobre cookies, privacidade ou tratamento de dados podem ser enviadas pela página de{" "}
+                  <Link className="font-black text-red-700 underline underline-offset-4" href="/jeptreinamentos/contato">
                     contato
                   </Link>
                   .
@@ -81,10 +85,13 @@ export function CookieConsent() {
             </div>
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <button className="btn btn-primary" type="button" onClick={() => close("accepted")}>
-                Prosseguir
+                Aceitar cookies
               </button>
-              <Link className="btn btn-ghost" href="/termos-de-cookies" onClick={() => setTermsOpen(false)}>
-                Ver pagina completa
+              <button className="btn btn-ghost" type="button" onClick={() => close("cancelled")}>
+                Cancelar
+              </button>
+              <Link className="btn btn-ghost" href="/jeptreinamentos/termos-de-cookies" onClick={() => setTermsOpen(false)}>
+                Ver página completa
               </Link>
             </div>
           </article>

@@ -1,0 +1,11 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html/
+    - /bin/mkdir -p $DEPLOYPATH
+    - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp favicon.svg file.svg globe.svg window.svg $DEPLOYPATH
+    - /bin/cp logo-jp.png og.png hero-fire-prevention.png $DEPLOYPATH
+    - /bin/cp gallery-*.jpg galeria-*.jpg $DEPLOYPATH
+    - /bin/cp -R assets $DEPLOYPATH
+    - /bin/cp -R contato galeria normas-regulamentadoras politica-de-privacidade servicos sobre termos-de-cookies termos-de-uso treinamentos $DEPLOYPATH

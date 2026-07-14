@@ -22,11 +22,11 @@ const sourceSans = Source_Sans_3({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "J&P Treinamentos | Prevencao de incendios e seguranca do trabalho",
+    default: "J&P Treinamentos | Prevenção de incêndios e segurança do trabalho",
     template: "%s | J&P Treinamentos",
   },
   description:
-    "Treinamentos de brigada de incendio, seguranca do trabalho, NRs, bombeiro civil e servicos de prevencao de incendios para empresas.",
+    "Treinamentos de brigada de incêndio, segurança do trabalho, NRs, bombeiro civil e serviços de prevenção de incêndios para empresas.",
   alternates: {
     canonical: siteConfig.url,
   },
@@ -49,12 +49,16 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "J&P Treinamentos",
-    description: "Prevencao de incendios e seguranca do trabalho para empresas.",
+    description: "Prevenção de incêndios e segurança do trabalho para empresas.",
     images: ["/og.png"],
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 

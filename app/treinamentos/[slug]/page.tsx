@@ -41,7 +41,7 @@ export default async function TrainingDetailPage({ params }: Props) {
           <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-200">{training.short}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a className="btn btn-primary" href={whatsappLink(serviceWhatsappMessage(`treinamento de ${training.name}`))} target="_blank" rel="noreferrer">
-              <MessageSquare className="h-4 w-4" /> Solicitar orcamento
+              <MessageSquare className="h-4 w-4" /> Solicitar orçamento
             </a>
             <a className="btn border-white/25 bg-white/10 text-white hover:bg-white/20" href={whatsappLink()} target="_blank" rel="noreferrer">
               Falar pelo WhatsApp
@@ -64,7 +64,7 @@ export default async function TrainingDetailPage({ params }: Props) {
               </ul>
             </article>
             <article>
-              <h2 className="text-3xl font-black text-zinc-950">Conteudo programatico</h2>
+              <h2 className="text-3xl font-black text-zinc-950">Conteúdo programático</h2>
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {training.syllabus.map((item) => (
                   <div key={item} className="rounded-sm border border-zinc-200 bg-white p-4 font-bold text-zinc-800">{item}</div>
@@ -74,12 +74,12 @@ export default async function TrainingDetailPage({ params }: Props) {
           </div>
 
           <aside className="card h-fit p-6">
-            <h2 className="text-2xl font-black text-zinc-950">Informacoes configuraveis</h2>
+            <h2 className="text-2xl font-black text-zinc-950">Informações configuráveis</h2>
             <div className="mt-6 grid gap-4">
-              <Info icon={<Users />} label="Publico indicado" value={training.audience} />
+              <Info icon={<Users />} label="Público indicado" value={training.audience} />
               <Info icon={<FileCheck2 />} label="Modalidade" value={training.modality} />
-              <Info icon={<ShieldCheck />} label="Aulas praticas" value={training.practical} />
-              <Info icon={<Clock />} label="Carga horaria" value={training.workload} />
+              <Info icon={<ShieldCheck />} label="Aulas práticas" value={training.practical} />
+              <Info icon={<Clock />} label="Carga horária" value={training.workload} />
               <Info icon={<Clock />} label="Validade ou reciclagem" value={training.validity} />
               <Info icon={<FileCheck2 />} label="Normas relacionadas" value={training.relatedNorms.join(", ")} />
             </div>

@@ -1,0 +1,1 @@
+import{r as e}from"./site-data-B6e_rPut.js";function t(t=e.defaultWhatsappMessage){return`https://wa.me/${e.whatsapp}?text=${encodeURIComponent(t)}`}function n(...e){return e.filter(Boolean).join(` `)}export{t as n,n as t};
