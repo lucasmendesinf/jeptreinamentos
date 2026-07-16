@@ -31,15 +31,22 @@ function Sync-BuildAssets {
 }
 
 function Sync-PublicAssets {
-  $publicGallery = Join-Path $root "public\gallery-optimized"
-  $targetGallery = Join-Path $root "gallery-optimized"
+  $publicDirs = @(
+    "gallery-optimized",
+    "training-card-images"
+  )
 
-  if (Test-Path -LiteralPath $publicGallery) {
-    if (Test-Path -LiteralPath $targetGallery) {
-      Remove-Item -LiteralPath $targetGallery -Recurse -Force
+  foreach ($dir in $publicDirs) {
+    $sourceDir = Join-Path $root "public\$dir"
+    $targetDir = Join-Path $root $dir
+
+    if (Test-Path -LiteralPath $sourceDir) {
+      if (Test-Path -LiteralPath $targetDir) {
+        Remove-Item -LiteralPath $targetDir -Recurse -Force
+      }
+
+      Copy-Item -LiteralPath $sourceDir -Destination $targetDir -Recurse -Force
     }
-
-    Copy-Item -LiteralPath $publicGallery -Destination $targetGallery -Recurse -Force
   }
 
   $publicFiles = @(
@@ -86,6 +93,28 @@ function Fix-LocalPaths([string] $html) {
   $html = $html -replace 'src="/(servico-[^"]+)"', 'src="/jeptreinamentos/$1"'
   $html = $html -replace 'href="/(servico-[^"]+)"', 'href="/jeptreinamentos/$1"'
   $html = $html -replace 'as="image" href="/(servico-[^"]+)"', 'as="image" href="/jeptreinamentos/$1"'
+  $html = $html -replace 'src="/(training-card-images/[^"]+)"', 'src="/jeptreinamentos/$1"'
+  $html = $html -replace 'href="/(training-card-images/[^"]+)"', 'href="/jeptreinamentos/$1"'
+  $html = $html.Replace('"/training-card-images/', '"/jeptreinamentos/training-card-images/')
+  $html = $html.Replace('\"/training-card-images/', '\"/jeptreinamentos/training-card-images/')
+
+  $publicRootFiles = @(
+    "hero-fire-prevention.jpg",
+    "og.jpg",
+    "logo-jp.jpg",
+    "favicon.ico",
+    "favicon.png",
+    "favicon-32x32.png",
+    "apple-touch-icon.png"
+  )
+
+  foreach ($file in $publicRootFiles) {
+    $html = $html.Replace("src=""/$file""", "src=""/jeptreinamentos/$file""")
+    $html = $html.Replace("href=""/$file""", "href=""/jeptreinamentos/$file""")
+    $html = $html.Replace("""/$file""", """/jeptreinamentos/$file""")
+    $html = $html.Replace('\"/' + $file + '\"', '\"/jeptreinamentos/' + $file + '\"')
+  }
+
   return $html
 }
 

@@ -11,10 +11,45 @@ type TrainingModalContent = {
   paragraphs: readonly string[];
 };
 
+const trainingCardImages: Record<string, Pick<TrainingModalContent, "image" | "imageAlt">> = {
+  "brigada-de-incendio": {
+    image: "/training-card-images/brigada-de-incendio.webp",
+    imageAlt: "Treinamento pratico de brigada de incendio com extintores e mangueiras",
+  },
+  "nr-6-epi": {
+    image: "/training-card-images/nr-6-epi.webp",
+    imageAlt: "Equipamentos de protecao individual organizados para treinamento",
+  },
+  "nr-10-seguranca-em-eletricidade": {
+    image: "/training-card-images/nr-10-seguranca-em-eletricidade.webp",
+    imageAlt: "Profissional demonstrando procedimento seguro em painel eletrico",
+  },
+  "nr-11-operador-de-empilhadeira": {
+    image: "/training-card-images/nr-11-operador-de-empilhadeira.webp",
+    imageAlt: "Treinamento de operador de empilhadeira em area demarcada",
+  },
+  "nr-12-seguranca-em-maquinas": {
+    image: "/training-card-images/nr-12-seguranca-em-maquinas.webp",
+    imageAlt: "Instrucao de seguranca em maquina industrial com protecao fisica",
+  },
+  "nr-23-protecao-contra-incendios": {
+    image: "/training-card-images/nr-23-protecao-contra-incendios.webp",
+    imageAlt: "Inspecao de equipamentos de protecao contra incendios",
+  },
+  "nr-33-espacos-confinados": {
+    image: "/training-card-images/nr-33-espacos-confinados.webp",
+    imageAlt: "Treinamento de entrada em espaco confinado com tripode e medidor",
+  },
+  "nr-35-trabalho-em-altura": {
+    image: "/training-card-images/nr-35-trabalho-em-altura.webp",
+    imageAlt: "Treinamento de trabalho em altura com cinto e linha de vida",
+  },
+};
+
 const trainingModalContent: Record<string, TrainingModalContent> = {
   "brigada-de-incendio": {
     title: "Brigada de Incêndio",
-    image: "/gallery-optimized/servico-img-20190806-wa0009.webp",
+    image: trainingCardImages["brigada-de-incendio"].image,
     imageAlt: "Treinamento prático de brigada de incêndio com uso de mangueira",
     paragraphs: [
       "Oferecemos treinamentos de brigadas de incêndios para empresas, edifícios comerciais e residenciais, com carga horária de 4 horas a 8 horas, seguindo todos os padrões das normas NPT-17 e NR 23.",
@@ -24,7 +59,7 @@ const trainingModalContent: Record<string, TrainingModalContent> = {
   },
   "nr-11-operador-de-empilhadeira": {
     title: "Curso NR 11 - Operador de Empilhadeira",
-    image: "/gallery-optimized/servico-dsc-0698.webp",
+    image: trainingCardImages["nr-11-operador-de-empilhadeira"].image,
     imageAlt: "Sinalização de segurança em área operacional",
     paragraphs: [
       "Oferecemos curso de operador de empilhadeira.",
@@ -34,7 +69,7 @@ const trainingModalContent: Record<string, TrainingModalContent> = {
   },
   "nr-35-trabalho-em-altura": {
     title: "Curso NR 35 - Trabalho em Altura",
-    image: "/gallery-optimized/servico-img-20190806-wa0020.webp",
+    image: trainingCardImages["nr-35-trabalho-em-altura"].image,
     imageAlt: "Atividade prática em área elevada durante treinamento de segurança",
     paragraphs: [
       "Oferecemos treinamentos para trabalho em altura.",
@@ -44,7 +79,7 @@ const trainingModalContent: Record<string, TrainingModalContent> = {
   },
   "nr-6-epi": {
     title: "Curso NR 6 - Equipamentos de Proteção Individual",
-    image: "/hero-fire-prevention.jpg",
+    image: trainingCardImages["nr-6-epi"].image,
     imageAlt: "Profissionais com equipamentos de proteção em ambiente de prevenção de incêndio",
     paragraphs: [
       "Realizamos treinamentos referentes à NR 6, Equipamentos de Proteção Individual, trazendo aos colaboradores conhecimento sobre a utilização correta dos EPIs e suas particularidades.",
@@ -55,19 +90,19 @@ const trainingModalContent: Record<string, TrainingModalContent> = {
 
 const fallbackTrainingImages: Record<string, Pick<TrainingModalContent, "image" | "imageAlt">> = {
   "nr-10-seguranca-em-eletricidade": {
-    image: "/gallery-optimized/servico-dsc-0696.webp",
+    image: trainingCardImages["nr-10-seguranca-em-eletricidade"].image,
     imageAlt: "Sinalização de segurança em área técnica",
   },
   "nr-12-seguranca-em-maquinas": {
-    image: "/gallery-optimized/servico-dsc-0698.webp",
+    image: trainingCardImages["nr-12-seguranca-em-maquinas"].image,
     imageAlt: "Sinalização preventiva aplicada em ambiente operacional",
   },
   "nr-23-protecao-contra-incendios": {
-    image: "/gallery-optimized/servico-dsc-0695.webp",
+    image: trainingCardImages["nr-23-protecao-contra-incendios"].image,
     imageAlt: "Extintor, hidrante e sinalização de prevenção de incêndio",
   },
   "nr-33-espacos-confinados": {
-    image: "/gallery-optimized/servico-img-20190806-wa0023.webp",
+    image: trainingCardImages["nr-33-espacos-confinados"].image,
     imageAlt: "Equipamento técnico usado em verificação preventiva",
   },
 };
@@ -105,10 +140,22 @@ function getTrainingModalContent(training: Training): TrainingModalContent {
 export function TrainingCard({ training }: { training: Training }) {
   const Icon = training.icon;
   const modalContent = getTrainingModalContent(training);
+  const cardImage = trainingCardImages[training.slug] ?? modalContent;
 
   return (
-    <article className="card group flex h-full flex-col p-6">
-      <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-sm bg-red-50 text-red-700 ring-1 ring-red-100">
+    <article className="card group flex h-full flex-col overflow-hidden p-6">
+      <figure className="-mx-6 -mt-6 mb-5 overflow-hidden bg-zinc-900">
+        <img
+          src={cardImage.image}
+          alt={cardImage.imageAlt}
+          width={640}
+          height={360}
+          loading="lazy"
+          decoding="async"
+          className="h-40 w-full object-cover transition duration-500 group-hover:scale-105"
+        />
+      </figure>
+      <div className="relative z-10 -mt-12 mb-5 flex h-12 w-12 items-center justify-center rounded-sm bg-white text-red-700 shadow-lg shadow-red-950/10 ring-1 ring-red-100">
         <Icon className="h-6 w-6" aria-hidden="true" />
       </div>
       <h3 className="text-xl font-black text-zinc-950">{training.name}</h3>

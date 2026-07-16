@@ -2,7 +2,6 @@
 
 import { FormEvent, ReactNode, useMemo, useState } from "react";
 import { trainings } from "@/lib/site-data";
-import { whatsappLink } from "@/lib/utils";
 
 type FormState = {
   name: string;
@@ -11,6 +10,11 @@ type FormState = {
   service: string;
   message: string;
   website: string;
+};
+
+type SubmitStatus = {
+  type: "idle" | "sending" | "success" | "error";
+  message: string;
 };
 
 const initialState: FormState = {
@@ -22,6 +26,11 @@ const initialState: FormState = {
   website: "",
 };
 
+const initialStatus: SubmitStatus = {
+  type: "idle",
+  message: "",
+};
+
 function maskPhone(value: string) {
   const digits = value.replace(/\D/g, "").slice(0, 11);
   if (digits.length <= 2) return digits;
@@ -30,17 +39,23 @@ function maskPhone(value: string) {
   return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
 }
 
+function getEmailEndpoint() {
+  if (typeof window === "undefined") return "/send-email.php";
+  const basePath = window.location.pathname.startsWith("/jeptreinamentos") ? "/jeptreinamentos" : "";
+  return `${basePath}/send-email.php`;
+}
+
 export function ContactForm() {
   const [form, setForm] = useState(initialState);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<SubmitStatus>(initialStatus);
 
   const serviceOptions = useMemo(() => trainings.map((item) => item.name), []);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((current) => ({ ...current, [key]: value }));
     if (errors[key]) setErrors((current) => ({ ...current, [key]: "" }));
-    if (sent) setSent(false);
+    if (status.type !== "idle") setStatus(initialStatus);
   }
 
   function validate() {
@@ -55,18 +70,43 @@ export function ContactForm() {
     return Object.keys(nextErrors).length === 0;
   }
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setSent(validate());
+    if (!validate()) return;
+
+    setStatus({ type: "sending", message: "Enviando mensagem..." });
+
+    try {
+      const response = await fetch(getEmailEndpoint(), {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const result = (await response.json().catch(() => null)) as { message?: string } | null;
+
+      if (!response.ok) {
+        throw new Error(result?.message || "Não foi possível enviar a mensagem.");
+      }
+
+      setForm(initialState);
+      setErrors({});
+      setStatus({
+        type: "success",
+        message: result?.message || "Mensagem enviada com sucesso. Em breve retornaremos o contato.",
+      });
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: error instanceof Error ? error.message : "Não foi possível enviar a mensagem. Tente novamente.",
+      });
+    }
   }
 
   function resetForm() {
     setForm(initialState);
     setErrors({});
-    setSent(false);
+    setStatus(initialStatus);
   }
-
-  const whatsappMessage = `Olá! Gostaria de solicitar um orçamento com a J&P Treinamentos.\n\nNome: ${form.name || "Não informado"}\nE-mail: ${form.email || "Não informado"}\nTelefone: ${form.phone || "Não informado"}\nAssunto: ${form.service || "Não informado"}\nMensagem: ${form.message || "Não informado"}`;
 
   return (
     <form className="contact-form contact-form-bootstrap" onSubmit={submit} noValidate>
@@ -99,7 +139,9 @@ export function ContactForm() {
             <select className="form-select" id="service" value={form.service} onChange={(event) => update("service", event.target.value)}>
               <option value="">Selecione uma opção</option>
               {serviceOptions.map((item) => (
-                <option key={item} value={item}>{item}</option>
+                <option key={item} value={item}>
+                  {item}
+                </option>
               ))}
               <option value="Adequações de prevenção de incêndio">Adequações de prevenção de incêndio</option>
               <option value="Sinalização e rotas de fuga">Sinalização e rotas de fuga</option>
@@ -115,12 +157,25 @@ export function ContactForm() {
           </Field>
         </div>
 
-        {sent && <p className="col-12 mb-0 rounded-sm border border-emerald-200 bg-emerald-50 p-3 text-sm font-semibold text-emerald-900">Dados validados. Clique em enviar mensagem para abrir o WhatsApp.</p>}
+        {status.message && (
+          <p
+            className={`col-12 mb-0 rounded-sm border p-3 text-sm font-semibold ${
+              status.type === "success"
+                ? "border-emerald-200 bg-emerald-50 text-emerald-900"
+                : status.type === "error"
+                  ? "border-red-200 bg-red-50 text-red-900"
+                  : "border-orange-200 bg-orange-50 text-orange-900"
+            }`}
+            role="status"
+          >
+            {status.message}
+          </p>
+        )}
 
         <div className="col-12 mt-3 flex flex-col gap-3 sm:flex-row">
-          <a className="contact-form-submit" href={whatsappLink(whatsappMessage)} target="_blank" rel="noreferrer" onClick={(event) => { if (!validate()) event.preventDefault(); }}>
-            Enviar mensagem
-          </a>
+          <button className="contact-form-submit" type="submit" disabled={status.type === "sending"}>
+            {status.type === "sending" ? "Enviando..." : "Enviar mensagem"}
+          </button>
           <button className="contact-form-reset" type="button" onClick={resetForm}>
             Limpar
           </button>
