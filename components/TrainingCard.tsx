@@ -12,6 +12,14 @@ type TrainingModalContent = {
 };
 
 const trainingCardImages: Record<string, Pick<TrainingModalContent, "image" | "imageAlt">> = {
+  "nr-01-ordem-de-servico-sst": {
+    image: "/training-card-images/nr-6-epi.webp",
+    imageAlt: "Materiais de seguranca do trabalho usados para orientacao de SST",
+  },
+  "nr-05-cipa": {
+    image: "/training-card-images/brigada-de-incendio.webp",
+    imageAlt: "Equipe reunida para treinamento de prevencao e seguranca do trabalho",
+  },
   "brigada-de-incendio": {
     image: "/training-card-images/brigada-de-incendio.webp",
     imageAlt: "Treinamento pratico de brigada de incendio com extintores e mangueiras",
@@ -47,6 +55,26 @@ const trainingCardImages: Record<string, Pick<TrainingModalContent, "image" | "i
 };
 
 const trainingModalContent: Record<string, TrainingModalContent> = {
+  "nr-01-ordem-de-servico-sst": {
+    title: "NR 01 - Ordem de Serviço e SST",
+    image: trainingCardImages["nr-01-ordem-de-servico-sst"].image,
+    imageAlt: "Materiais de segurança do trabalho usados para orientação de SST",
+    paragraphs: [
+      "Realizamos a emissão de Ordem de Serviço e a organização da base de SST para empresas que precisam orientar colaboradores sobre riscos, responsabilidades e medidas preventivas.",
+      "O apoio pode incluir levantamento de funções, riscos ocupacionais, orientações preventivas, deveres dos colaboradores e organização dos registros necessários para manter a documentação mais clara e acessível.",
+      "O escopo é definido conforme a realidade da empresa, suas atividades, funções e necessidades de segurança e saúde no trabalho.",
+    ],
+  },
+  "nr-05-cipa": {
+    title: "NR 05 - CIPA",
+    image: trainingCardImages["nr-05-cipa"].image,
+    imageAlt: "Equipe reunida para treinamento de prevenção e segurança do trabalho",
+    paragraphs: [
+      "Oferecemos formação e reciclagem da CIPA para empresas que precisam estruturar ou manter a Comissão Interna de Prevenção de Acidentes.",
+      "Também apoiamos reuniões, treinamentos, atas, registros, cronogramas e toda a documentação necessária para uma gestão preventiva mais organizada.",
+      "O atendimento é ajustado conforme o enquadramento, o porte da empresa e as necessidades internas de prevenção de acidentes e doenças relacionadas ao trabalho.",
+    ],
+  },
   "brigada-de-incendio": {
     title: "Brigada de Incêndio",
     image: trainingCardImages["brigada-de-incendio"].image,

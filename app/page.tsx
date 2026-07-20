@@ -21,7 +21,14 @@ export default function Home() {
     { icon: HardHat, label: "Segurança do trabalho", value: "NRs e operação segura" },
     { icon: Siren, label: "Emergência organizada", value: "rotas, alarmes e resposta" },
   ];
-  const featuredTrainingSlugs = new Set(["brigada-de-incendio", "nr-6-epi", "nr-11-operador-de-empilhadeira", "nr-35-trabalho-em-altura"]);
+  const featuredTrainingSlugs = new Set([
+    "nr-01-ordem-de-servico-sst",
+    "nr-05-cipa",
+    "brigada-de-incendio",
+    "nr-6-epi",
+    "nr-11-operador-de-empilhadeira",
+    "nr-35-trabalho-em-altura",
+  ]);
   const featuredTrainings = trainings.filter((training) => featuredTrainingSlugs.has(training.slug));
 
   return (
@@ -99,7 +106,7 @@ export default function Home() {
           <SectionHeading eyebrow="Principais treinamentos" title="Capacitações para operações mais seguras" align="center">
             Formações estruturadas para brigadistas, operadores e equipes que precisam reconhecer riscos, agir com critério e responder melhor em emergências.
           </SectionHeading>
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {featuredTrainings.map((training) => <TrainingCard key={training.slug} training={training} />)}
           </div>
         </div>

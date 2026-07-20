@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   const values = ["Responsabilidade", "Competência", "Obediência às normas", "Preço justo", "Qualificação", "Segurança"];
   const offers = [
-    "Treinamentos conforme NR 06, NR 09, NR 10, NR 11, NR 23, NR 26, NR 33 e NR 35.",
+    "Treinamentos e apoio documental conforme NR 01, NR 05, NR 06, NR 09, NR 10, NR 11, NR 23, NR 26, NR 33 e NR 35.",
     "Adequações de máquinas conforme NR 12.",
     "Adequações de prevenção de incêndio: extintores, placas de sinalização, pinturas de solo e rotas de fuga.",
   ];
@@ -26,7 +26,7 @@ export default function AboutPage() {
           <p className="eyebrow text-orange-300">Sobre a J&P</p>
           <h1 className="mt-4 max-w-4xl text-5xl font-black leading-tight md:text-6xl">Como a vida não tem preço, vale a pena investir na segurança do trabalho.</h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-zinc-200">
-            A J&P Treinamentos atua no mercado prestando serviços e treinamentos na área de segurança do trabalho e prevenção de incêndios.
+            Fundada em {siteConfig.founded}, a J&P Treinamentos atua no mercado prestando serviços e treinamentos na área de segurança do trabalho e prevenção de incêndios.
           </p>
         </div>
       </section>
@@ -42,6 +42,7 @@ export default function AboutPage() {
               ["Quem são nossos profissionais?", "Nossos profissionais possuem qualificações para garantir um atendimento consistente e orientado a resultados."],
               ["Objetivo comum", "A união da equipe em prol de um trabalho digno faz diferença nos resultados: atender aos interesses dos clientes levando maior possibilidade de segurança a todos."],
               ["Compromisso", "Atuar com responsabilidade, conteúdo coerente e respeito às normas regulamentadoras aplicáveis."],
+              ["Fundação", `Empresa fundada em ${siteConfig.founded}, com atuação voltada à prevenção, treinamentos e apoio técnico em segurança do trabalho.`],
             ].map(([title, text]) => (
               <article key={title} className="card p-6">
                 <h2 className="text-xl font-black text-zinc-950">{title}</h2>

@@ -27,7 +27,7 @@ export const siteConfig = {
   emailHref: "mailto:contato@jeptreinamentos.com.br",
   responsible: "Pedro Alex Machado",
   credential: "Bombeiro Civil - CNBC 183233",
-  founded: "2019",
+  founded: "2018",
   serviceHours: "Horário de atendimento a confirmar",
   addressNote: "Endereço comercial a informar",
   social: {
@@ -48,13 +48,49 @@ export const navItems = [
 ];
 
 export const trustIndicators = [
-  { label: "Anos de experiência", value: "Desde 2019", note: "Confirmado no site atual" },
+  { label: "Anos de experiência", value: "Desde 2018", note: "Data de fundação da empresa" },
   { label: "Profissionais treinados", value: "A informar", note: "Inserir número real" },
   { label: "Empresas atendidas", value: "A informar", note: "Inserir número real" },
   { label: "Treinamentos realizados", value: "A informar", note: "Inserir número real" },
 ];
 
 export const trainings = [
+  {
+    slug: "nr-01-ordem-de-servico-sst",
+    name: "NR 01 - Ordem de Serviço e SST",
+    short: "Emissão de Ordem de Serviço e organização da base de SST para orientar riscos, responsabilidades e medidas preventivas.",
+    icon: ClipboardCheck,
+    relatedNorms: ["NR 01"],
+    audience: "Empresas que precisam estruturar orientações de SST, ordens de serviço e documentação preventiva.",
+    modality: "Consultivo e documental, com orientação conforme necessidade da empresa.",
+    practical: "Pode incluir levantamento de funções, riscos, orientações preventivas e apoio na organização dos registros.",
+    workload: "Conforme escopo contratado.",
+    validity: "Conforme atualizações internas, mudanças de função, atividade ou legislação aplicável.",
+    objectives: [
+      "Emitir Ordens de Serviço alinhadas à realidade das funções.",
+      "Organizar informações básicas de segurança e saúde no trabalho.",
+      "Reforçar deveres, riscos e medidas preventivas aos colaboradores.",
+    ],
+    syllabus: ["Ordem de Serviço", "Responsabilidades", "Riscos ocupacionais", "Medidas preventivas", "Base documental de SST"],
+  },
+  {
+    slug: "nr-05-cipa",
+    name: "NR 05 - CIPA",
+    short: "Formação e reciclagem da CIPA, reuniões, treinamentos e organização de toda a documentação necessária.",
+    icon: BadgeCheck,
+    relatedNorms: ["NR 05"],
+    audience: "Empresas que precisam formar, reciclar ou organizar a Comissão Interna de Prevenção de Acidentes.",
+    modality: "Treinamento e apoio documental conforme necessidade da empresa.",
+    practical: "Pode incluir orientação para reuniões, registros, atas, cronogramas e documentação da CIPA.",
+    workload: "Conforme enquadramento e escopo contratado.",
+    validity: "Conforme regras aplicáveis à gestão da CIPA.",
+    objectives: [
+      "Capacitar representantes para atuação preventiva.",
+      "Apoiar reuniões, registros e documentação da CIPA.",
+      "Fortalecer a prevenção de acidentes e doenças relacionadas ao trabalho.",
+    ],
+    syllabus: ["Formação da CIPA", "Reciclagem", "Reuniões", "Atas e documentos", "Prevenção de acidentes"],
+  },
   {
     slug: "brigada-de-incendio",
     name: "Brigada de Incêndio",
@@ -261,6 +297,8 @@ export const galleryItems = [
 ];
 
 export const nrItems = [
+  { code: "NR 1", title: "Ordem de Serviço e SST", summary: "Emissão de Ordem de Serviço, orientações sobre riscos ocupacionais, responsabilidades e base documental de segurança e saúde no trabalho." },
+  { code: "NR 5", title: "Comissão Interna de Prevenção de Acidentes", summary: "Formação e reciclagem da CIPA, reuniões, treinamentos, atas, registros e documentação preventiva." },
   { code: "NR 6", title: "Equipamentos de Proteção Individual", summary: "Uso adequado, armazenamento, cuidados com EPIs e escolha dos tipos de proteção para cada trabalho." },
   { code: "NR 9", title: "Programa de Prevenção de Riscos Ambientais", summary: "Referência informativa sobre identificação e prevenção de riscos ambientais no trabalho." },
   { code: "NR 10", title: "Segurança em Instalações e Serviços em Eletricidade", summary: "Treinamentos e reciclagens sobre riscos, equipamentos de proteção, sinalização e procedimentos para serviços com eletricidade." },
